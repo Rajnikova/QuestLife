@@ -1,0 +1,56 @@
+<h3>Logged in: <%=current_user.name %></h3>
+
+
+<%= link_to 'my_quests', '/quests' %>
+
+<h1>Vytvor novy quest</h1>
+
+
+
+<%= form_for(:quest, url: users_path) do |form| %>
+  <p>
+    <%= form.label :Quest %><br>
+    <%= form.text_area :task %>
+  </p>
+  <p>
+    <%= form.label :reward %><br>
+    <%= form.number_field :reward %>
+  </p>
+  <p>
+  <%= form.label :description %><br>
+  <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
+    <%= form.label :Add_to_mine %>
+    <br>
+
+    <%= check_box_tag :add_quest_to_someone, 1, false %>
+    <%= form.label :Send_to_someone %>
+    <br>
+    <%= form.label :User_id %>
+    <%= number_field_tag :other_user_id %>
+  </p>
+  <p>
+    <%= form.button %>
+  </p>
+<% end %>
+
+
+
+
+<h1>Your completed quests:</h1>
+<% accepted = current_user.quests.where(:users_quests => {status: '2'}) %>
+<% accepted.each  do |quest|    %>
+  <%= quest.task %>
+  <br>
+<% end %>
+<br>
+
+<h1>Your created quests:</h1>
+<% accepted = current_user.quests.where(:users_quests => {status: '0'}) %>
+<% accepted.each  do |quest|    %>
+  <%= quest.task %>
+  <br>
+<% end %>
+<br>

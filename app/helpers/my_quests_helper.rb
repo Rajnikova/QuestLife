@@ -1,0 +1,2 @@
+module MyQuestsHelper
+end
