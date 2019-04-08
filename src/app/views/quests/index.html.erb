@@ -1,0 +1,20 @@
+<h1>Your accepted quests:</h1>
+
+<% accepted = current_user.quests.where(:users_quests => {status: '1'}) %>
+<% accepted.each  do |quest|    %>
+  <%= link_to 'Accept', quest_accept_path(quest), method: 'POST' %>
+ <%= quest.task %>
+<br>
+<% end %>
+<br>
+
+<!--
+<%= form_for(:quest, url: quests_path) do |form| %>
+  <p>
+    <%= label_tag :Completed_quest %>
+    <%= number_field_tag :completed_quest_id %>
+    <%= button_to "Complete", action: "complete"%>
+  </p>
+<% end %> -->
+
+<%= link_to 'Back', :back%>

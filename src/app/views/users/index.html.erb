@@ -1,0 +1,118 @@
+
+
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+
+<body>
+<a href="#" class='js-show-more-toggle'>Zobraz viac</a>
+<div class="js-show-more-content">
+  Viac viac viac
+</div>
+
+<!--aplication -->
+
+<script>
+    $(document).ready(function(){
+        $("p").click(function(){
+            $(this).hide();
+        });
+        // $(document).on('click','.js-show-more-toggle',function(){
+        //     console.log('click');
+        //     //$(this).hide();
+        //     //$(this).siblings('.js-show-more-content').show
+        //     $(this).text('skryt');
+        //     //$(this).siblings('.js-show-more-content').toggle();
+        //     $(this).siblings('.js-show-more-content').show();
+        //     return false;
+        // })
+    });
+
+</script>
+
+<ul class="js-comments">
+  <li>Komentar</li>
+  <li>Komentar</li>
+  <li>Komentar</li>
+  <li>Komentar</li>
+  <li>Komentar</li>
+  <li>Komentar</li>
+  <li>Komentar</li>
+</ul>
+
+<!-- <a href="#"></a>
+nechcem nikam poslat
+-->
+
+<h1>Hello, Rails!</h1>
+<ol>
+ <% @users.each_with_index  do |user|  %>
+<li>
+    <strong>
+  <%= user.name %>
+      created <%= time_ago_in_words user.created_at %> ago
+      <%= link_to user.name, user %>
+</strong>
+</li>
+<% end %>
+  </ol>
+<%= link_to 'my quests', 'quests' %>
+
+<%= form_with scope: :quest, local: true do |form| %>
+
+  <p>
+    <%= form.label :Quest %><br>
+    <%= form.text_area :task %>
+  </p>
+  <p>
+  <%= form.label :reward %><br>
+  <%= form.number_field :reward %>
+  </p>
+  <%= form.label :description %><br>
+  <%= form.text_area :description %>
+  <p>
+    <%= form.button %>
+  </p>
+<% end %>
+_________________________________________________________________
+<h1>Pouzivatelia a ich questy:</h1>
+<!--
+<% @users.each do |user| %>
+  <h3><%=user.name %></h3>
+  <% user.quests.each  do |quest|    %>
+  <%= quest.task %>
+    <br>
+  <% end %>
+  <br>
+  ________________________________________________________________
+<% end %>
+-->
+<script>
+  console.log('refresh')
+</script>
+
+<script>
+    // document.querySelector('.js-show-more-toggle').addEventListener('click',function(e){
+    //     //document.addEventListener('click',function(e){
+    //     //console.log('klik');
+    //     e.preventDefault();//proti refresu nazad
+    //     e.stopPropagation(); //malokedy
+    //     document.querySelector('.js-show.more.content').style.display="block";
+    //
+    // })
+
+</script>
+
+</body>
+
+<script>
+    // $(document).ready(function(){
+    //     $("button").click(function(){
+    //         $.ajax({url: "demo_test.txt", success: function(result){
+    //                 $("#div1").html(result);
+    //             }});
+    //     });
+    // });
+</script>
+
