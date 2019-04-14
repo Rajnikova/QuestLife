@@ -52,8 +52,8 @@ Výnimkový scenár
 
 
 # Diagram údajov
-![Diagram údajov pre aplikaciu](https://00276699387180924994.googlegroups.com/attach/9b7267f2628c5/model1.png?part=0.1&view=1&vt=ANaJVrFDy0INl-G7uTrBjN9JU5cRMAKpFPM_bfY6VH9jaVZWygMM8qIOtUwwKxdRIqx3oiTYbNS62CAlkHBa0iK1CIZv9s0liBrbPR3yqXylNsTyCP0lD6c)
+![Diagram údajov pre aplikaciu](https://github.com/fiit-dbs-2019/dbs2019-project-assignment-maria-rajnikova/blob/master/doc/model.png)
 
 # LeanCanvas
-![Lean Canvas](https://pdf2jpg.net/files/bf3bf25d03c0d906ea7cdf64ec5150a879ce59e5/leancanvas1-page-001.jpg)
+![Lean Canvas](https://github.com/fiit-dbs-2019/dbs2019-project-assignment-maria-rajnikova/blob/master/doc/leancanvas1.jpg)
 ---
