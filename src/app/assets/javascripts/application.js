@@ -14,8 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require bootstrap
-// neda znovu dokonceny
 //= require jquery
+//= require jquery_ujs
+// neda znovu dokonceny
 //= require_tree .
 
 a = 1 //globalna

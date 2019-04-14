@@ -10,4 +10,7 @@ class Quest < ApplicationRecord
   def status
 
   end
+  def add
+
+  end
 end

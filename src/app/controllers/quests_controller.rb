@@ -22,12 +22,15 @@ class QuestsController < ApplicationController
 
   def accept
     quest = Quest.find(params[:quest_id])
-    quest.users_quests.where(user_id: current_user.id, status: 1).first.status = 2
+    #netreba asi daj tam rovno id
+    quest.users_quests.where(user_id: current_user.id, status: 1).first.delete
+    @users_quest = UsersQuest.new(user_id: current_user.id,
+                                  quest_id: quest.id, status: 2)
     #quest.accept
     if quest.save
-      flash[:success] = 'Quest ulozeny'
+      flash[:success] = 'Quest completed'
     else
-      flash[:alert] = 'Zle je'
+      flash[:alert] = 'error counld not save quest'
     end
     redirect_back(fallback_location: quests_path)
   end
