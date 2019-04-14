@@ -1,4 +1,5 @@
 <h1>Your accepted quests:</h1>
+<%= link_to 'Accept', quest_accept_path(quest), method: 'POST' %>
 
 <% accepted = current_user.quests.where(:users_quests => {status: '1'}) %>
 <% accepted.each  do |quest|    %>

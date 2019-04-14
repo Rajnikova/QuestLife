@@ -82,4 +82,4 @@ production:
   <<: *default
   database: dbs_production
   username: majka
-  password: Leafeon470
+  password: dbs

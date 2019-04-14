@@ -1,5 +1,14 @@
 
-
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li><%= link_to 'my quests', 'quests' %></li>
+    <li>Komentar</li>
+    <li>Komentar</li>
+    <li>Komentar</li>
+    <li>Komentar</li>
+    <li>Komentar</li>
+  </ul>
+</div>
 
 <p>If you click on me, I will disappear.</p>
 <p>Click me away!</p>
@@ -47,16 +56,16 @@ nechcem nikam poslat
 
 <h1>Hello, Rails!</h1>
 <ol>
- <% @users.each_with_index  do |user|  %>
-<li>
-    <strong>
-  <%= user.name %>
-      created <%= time_ago_in_words user.created_at %> ago
-      <%= link_to user.name, user %>
-</strong>
-</li>
-<% end %>
-  </ol>
+  <% @users.each_with_index  do |user|  %>
+    <li>
+      <strong>
+        <%= user.name %>
+        created <%= time_ago_in_words user.created_at %> ago
+        <%= link_to user.name, user %>
+      </strong>
+    </li>
+  <% end %>
+</ol>
 <%= link_to 'my quests', 'quests' %>
 
 <%= form_with scope: :quest, local: true do |form| %>
