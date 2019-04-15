@@ -6,6 +6,7 @@
 
 <!------ Include the above in your HEAD tag ---------->
 
+
 <body>
 <div id="navbar-wrapper">
   <header>
@@ -72,9 +73,9 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="/users">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">Send quest</span>
+            <span class="sidebar-title">Create quest</span>
           </a>
         </li>
         <li>
@@ -93,7 +94,7 @@
         <div class="well">
           <h1 class="text-center">My quests</h1>
 
-          <% accepted = current_user.quests.where(:users_quests => {status: '1'}) %>
+          <% accepted = current_user.quests.where(:users_quests => {status: '1'}).order('id').paginate(page: params[:page], per_page: 7) %>
           <% accepted.each  do |quest|    %>
 
 
@@ -122,6 +123,7 @@
               </a>
             </div>
           <% end %>
+          <%=will_paginate accepted %>
         </div>
       </div>
     </div>

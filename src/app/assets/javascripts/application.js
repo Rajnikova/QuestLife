@@ -12,7 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+//x= require turbolinks
 //= require bootstrap
 //= require jquery
 //= require jquery_ujs
@@ -37,16 +37,16 @@ a = 1 //globalna
 // })
 
 //document.addEventListener('DOMContentLoaded', function() {
-$(function(){
-    console.log("dokonceny");
-    // document.querySelector('#.js-show-more-toggle').addEventListener('click', function(){
-    //     console.log('kliknuty');
-    //     //e.preventDefault();
-    //     //e.stopPropagation(); //
-   // debugger
-    $(".js-show-more-content").hide();
-    //document.querySelector('.js-show-more-content').style.display = "none";
-    console.log("prejde");
+// $(function(){
+//     console.log("dokonceny");
+//     // document.querySelector('#.js-show-more-toggle').addEventListener('click', function(){
+//     //     console.log('kliknuty');
+//     //     //e.preventDefault();
+//     //     //e.stopPropagation(); //
+//    // debugger
+//     $(".js-show-more-content").hide();
+//     //document.querySelector('.js-show-more-content').style.display = "none";
+//     console.log("prejde");
     // });
 
 
@@ -59,15 +59,15 @@ $(function(){
 //     $(this).siblings('.js-show-more-content').toggle();
 //     return false;
 // })
-$(document).on('click','.js-show-more-toggle',function(){
-    console.log('click');
-    //$(this).hide();
-    //$(this).siblings('.js-show-more-content').show
-    $(this).text('skryt');
-    //$(this).siblings('.js-show-more-content').toggle();
-    $(this).siblings('.js-show-more-content').toggle();
-    return false;
-})
+// $(document).on('click','.js-show-more-toggle',function(){
+//     console.log('click');
+//     //$(this).hide();
+//     //$(this).siblings('.js-show-more-content').show
+//     $(this).text('skryt');
+//     //$(this).siblings('.js-show-more-content').toggle();
+//     $(this).siblings('.js-show-more-content').toggle();
+//     return false;
+// })
 
 //
 // $(function(){
@@ -78,21 +78,21 @@ $(document).on('click','.js-show-more-toggle',function(){
 // //$(document).ready() az ked je redy sa spusti
 //
 // //treba dppisat more
-$(document).on('click','.js-comments',function(){
-    console.log('ide to');
-    $.get('/users', function(data){
-        //debuger
-
-        console.log(data);
-        $('.js-comments').append('<li>novykomentar</li>');
-    })
-    return false;
-})
-    $(document).ready(function(){
-        $("button").click(function(){
-            $.ajax({url: "demo_test.txt", success: function(result){
-                    $("#div1").html(result);
-                }});
-        });
-    });
-})
+// $(document).on('click','.js-comments',function(){
+//     console.log('ide to');
+//     $.get('/users', function(data){
+//         //debuger
+//
+//         console.log(data);
+//         $('.js-comments').append('<li>novykomentar</li>');
+//     })
+//     return false;
+// })
+//     $(document).ready(function(){
+//         $("button").click(function(){
+//             $.ajax({url: "demo_test.txt", success: function(result){
+//                     $("#div1").html(result);
+//                 }});
+//         });
+//     });
+// })

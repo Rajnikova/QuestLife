@@ -74,7 +74,7 @@
         <li>
           <a href="#">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">Send quest</span>
+            <span class="sidebar-title">Create quest</span>
           </a>
         </li>
         <li>
@@ -108,7 +108,7 @@
         <br>
 
         <%= check_box_tag :add_quest_to_someone, 1, false %>
-        <%= form.label :Send_to_someone %>
+        <%= form.label :Send_to_other_user %>
         <br>
         <%= form.label :User_id %>
         <%= number_field_tag :other_user_id %>

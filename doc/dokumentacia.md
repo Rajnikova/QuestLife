@@ -27,7 +27,7 @@ Výnimkový scenár
 1. používateľ vyberie možnosť "Create quest"
 2. systém zobrazí formulár s údajmi o queste a možnosťami.
 3. používateľ vyplní názov questu, odmenu a prípadný popis a vyberie z možností "Add to mine"
-4. aplikácia vygeneruje quest a prideli ho ako prijatý používateľovi. zároveò sa pouívateŸ stáva autorom tohoto questu
+4. aplikácia vygeneruje quest a prideli ho ako prijatý používateľovi. zároveň sa používateľ stáva autorom tohoto questu
 
 ## UC03 Odoslanie questu
 
@@ -41,7 +41,7 @@ Výnimkový scenár
 1. používateľ si vyberie možnosť "My quests" v ľavom menu
 2. aplikácia zobrazí všetky questy, ktoré má používateľ prijaté
 3. používateľ si vyberie quest, ktorý chce označiť ako splnený
-4. aplikácia zaradí quest medzi splnené a zobrazí "Quest saved"
+4. aplikácia zaradí quest medzi splnené a zobrazí "Quest completed"
 
 ## UC05 Prijatie questu z existujúcich
 
