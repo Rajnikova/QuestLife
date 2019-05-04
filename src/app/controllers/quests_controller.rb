@@ -24,17 +24,26 @@ class QuestsController < ApplicationController
   def accept
     #completing quest
     quest = Quest.find(params[:quest_id])
-    current_user.addScore(quest.reward)
-    current_user.save
-    #netreba asi daj tam rovno id
-    quest.users_quests.where(user_id: current_user.id, status: 1).first.delete
-    @users_quest = UsersQuest.new(user_id: current_user.id,
-                                  quest_id: quest.id, status: 2)
-    #quest.accept
-    if quest.save
-      flash[:success] = 'Quest completed'
-    else
-      flash[:alert] = 'error counld not save quest'
+
+    con = PG.connect dbname: 'dbs_development' , user: 'majka', password: 'Leafeon'
+
+
+
+    ActiveRecord::Base.transaction do
+      begin
+        current_user.addScore(quest.reward)
+        current_user.save!
+
+        status = quest.users_quests.where(user_id: current_user.id, status: 1).first
+        status.update!(status: 2)
+
+        if status.save!
+          flash[:success] = 'Quest completed'
+        else
+          flash[:alert] = 'error counld not save quest'
+          rollback
+        end
+      end
     end
     redirect_back(fallback_location: quests_path)
   end
