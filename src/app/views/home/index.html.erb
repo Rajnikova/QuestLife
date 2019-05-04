@@ -98,7 +98,68 @@
   </div>
   <main id="page-content-wrapper" role="main">
     <!-- stred -->
-   
+    <div class="container">
+      <div class="row">
+        <div class="well">
+         <h1>Top user</h1>
+          <div class="row">
+            <div class="list-group">
+                <!--center -->
+
+                <div class="col-sm-2">
+                  <p class="list-group-item-heading"> <%= @top_user.name %> </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> Level: </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= @top_user.level %> </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> Score:  </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= @top_user.score %> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="well">
+          <h1>Most times completed Quest</h1>
+          <%@top_quest.each_with_index { |quest, i | %>
+            <div class="row">
+              <div class="list-group">
+                <!--center -->
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"><b> <%= i+1 %>.</b> </p>
+                </div>
+                <div class="col-sm-2">
+                  <p class="list-group-item-heading"> <%= quest.task %> </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> People completed  </p>
+                </div>
+                <div class="col-sm-2">
+                  <p class="list-group-item-heading"> <%= @top_quest_count[i]%> </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> Reward: </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= quest.id %> </p>
+                </div>
+
+              </div>
+            </div>
+            <%} %>
+        </div>
+      </div>
+    </div>
+
   </main>
 </div>
 </body>
