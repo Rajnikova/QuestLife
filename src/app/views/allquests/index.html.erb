@@ -132,7 +132,9 @@
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 2).count %> </p>
                 </div>
-                  <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
+                <%= link_to 'Detail', quest_detail_path(quest_id: quest.id), method: 'GET' %>
+                <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
+
 
 
 
