@@ -79,7 +79,13 @@
         <li>
           <a href="/quests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">My Quests</span>
+            <span class="sidebar-title">My accepted Quests</span>
+          </a>
+        </li>
+        <li>
+          <a href="/created_quests">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">My created Quests</span>
           </a>
         </li>
         <li>
@@ -121,13 +127,13 @@
                   <p class="list-group-item-heading"> </p>
                 </div>
                 <div class="col-sm-2">
-                  <p class="list-group-item-heading"> People accepted</p>
+                  <p class="list-group-item-heading"> Accepted times:</p>
                 </div>
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 1).count %> </p>
                 </div>
                 <div class="col-sm-2">
-                  <p class="list-group-item-heading"> People completed</p>
+                  <p class="list-group-item-heading">Completed times:</p>
                 </div>
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 2).count %> </p>

@@ -1,0 +1,155 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+<body>
+<div id="navbar-wrapper">
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">QuestLife</a>
+        </div>
+
+        <div id="navbar-collapse" class="collapse navbar-collapse">
+          <!--
+         <form class="navbar-form navbar-left" role="search">
+           <div class="input-group">
+             <input type="text" class="form-control" placeholder="Search">
+             <span class="input-group-btn">
+                                   <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                               </span>
+           </div> -->
+
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <!--
+            <li class="dropdown">
+              <a id="flag" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="http://www.country-dialing-codes.net/img/png-country-4x2-fancy-res-1280x960/gb.png" alt="English" width="28px" height="18px">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-flag" role="menu">
+                <li>
+                  <a href="#">
+                    <img src="http://www.country-dialing-codes.net/img/png-country-4x2-flat-res-640x480/gf.png" alt="Français" width="28px" height="18px">
+                    <span>Français</span>
+                  </a>
+                </li>
+              </ul>
+            </li> -->
+            <li class="dropdown">
+              Lvl: <%= current_user.level %>
+              Score: <%=current_user.score %>
+            </li>
+            <li class="dropdown">
+              <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="http://lorempixel.com/100/100/people/9/" class="img-responsive img-thumbnail img-circle"> <%=current_user.name %></a>
+            <li><a href="#">Logout</a></li>
+            <ul class="dropdown-menu dropdown-block" role="menu">
+              <li><a href="#">Profil edition</a></li>
+              <li><a href="#">Admin</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+    <aside id="sidebar">
+      <ul id="sidemenu" class="sidebar-nav">
+        <li>
+          <a href="/home">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="/quests">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">My accepted Quests</span>
+          </a>
+        </li>
+        <li>
+          <a href="/created_quests">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">My created Quests</span>
+          </a>
+        </li>
+        <li>
+          <a href="/users">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">Create quest</span>
+          </a>
+        </li>
+        <li>
+          <a href="/allquests">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">All quest</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <main id="page-content-wrapper" role="main">
+    <!-- stred -->
+    <div class="container">
+      <div class="row">
+        <div class="well">
+          <h1 class="text-center">My created quests</h1>
+          <% @my_quests.each  do |quest|    %>
+            <div class="list-group">
+              <a href="#" class="list-group-item active">
+
+
+                <div class="col-sm-10">
+                  <p class="list-group-item-heading"> <%= quest.task %> </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> reward: </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= quest.reward %> </p>
+                </div>
+                <div class="col-sm-6">
+                  <p class="list-group-item-heading"> </p>
+                </div>
+                <div class="col-sm-2">
+                  <p class="list-group-item-heading">Accepted times:</p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 1).count %> </p>
+                </div>
+                <div class="col-sm-2">
+                  <p class="list-group-item-heading"> Completed times:</p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 2).count %> </p>
+                </div>
+                <%= link_to 'Detail', quest_detail_path(quest_id: quest.id), method: 'GET' %>
+                <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
+                <%= link_to 'Delete', created_quests_path(quest_id: quest.id), method: 'DELETE' %>
+              </a>
+            </div>
+          <% end %>
+          <%=will_paginate @my_quests %>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
