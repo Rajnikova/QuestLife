@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get    '/quest_detail',  to: 'quest_detail#index'
   get    '/created_quests',to: 'created_quests#index'
   delete '/created_quests',to: 'created_quests#delete'
+  delete '/new_quests',    to: 'new_quests#delete'
   resources :quests do
     post :accept
   end
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   resources :home
   resources :quest_detail
   resources :created_quests
+  resources :new_quests
   resources :allquests do
     post :accept
   end

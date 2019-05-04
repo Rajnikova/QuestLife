@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     require 'will_paginate/array'
+    @new_quests = UsersQuest.where(user_id: current_user.id, status: 10)
     @users = User.all
     @top_user = User.all.max_by { |user| [user.level, user.score] }
   
@@ -22,5 +23,6 @@ class HomeController < ApplicationController
       @top_quest_count[i] = res['completed']
     end
     @top_quest = @top_quest.paginate(page: params[:page], per_page: 7)
+
   end
 end

@@ -13,4 +13,7 @@ class Quest < ApplicationRecord
   def add
 
   end
+  def author
+    self.users.where(users_quests: {status: 0}).first
+  end
 end

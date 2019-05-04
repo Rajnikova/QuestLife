@@ -76,6 +76,12 @@
           </a>
         </li>
         <li>
+          <a href="/new_quests">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">New quests</span>
+          </a>
+        </li>
+        <li>
           <a href="/quests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
             <span class="sidebar-title">My accepted Quests</span>
@@ -88,7 +94,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="/users">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
             <span class="sidebar-title">Create quest</span>
           </a>
@@ -96,7 +102,7 @@
         <li>
           <a href="/allquests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">All quest</span>
+            <span class="sidebar-title">All quests</span>
           </a>
         </li>
       </ul>
@@ -104,35 +110,51 @@
   </div>
   <main id="page-content-wrapper" role="main">
     <!-- stred -->
+    <div class="container">
+      <div class="row">
+        <div class="well">
+          <h1 class="text-center">Create/Send quest</h1>
+          <% flash.each do |key, value| %>
 
-    <%= form_for(:quest, url: users_path) do |form| %>
-      <p>
-        <%= form.label :Quest %><br>
-        <%= form.text_area :task %>
-      </p>
-      <p>
-        <%= form.label :reward %><br>
-        <%= form.number_field :reward %>
-      </p>
-      <p>
-        <%= form.label :description %><br>
-        <%= form.text_area :description %>
-      </p>
-      <p>
-        <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
-        <%= form.label :Add_to_mine %>
-        <br>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+          <div class="form-box">
+            <%= form_for(:quest, url: users_path) do |form| %>
+              <% flash.each do |key, value| %>
 
-        <%= check_box_tag :add_quest_to_someone, 1, false %>
-        <%= form.label :Send_to_other_user %>
-        <br>
-        <%= form.label :User_id %>
-        <%= number_field_tag :other_user_id %>
-      </p>
-      <p>
-        <%= form.button %>
-      </p>
-    <% end %>
+                <div class="alert alert-<%= key %>"><%= value %></div>
+              <% end %>
+              <p>
+                <%= form.label :Quest %><br>
+                <%= form.text_area :task %>
+              </p>
+              <p>
+                <%= form.label :reward %><br>
+                <%= form.number_field :reward %>
+              </p>
+              <p>
+                <%= form.label :description %><br>
+                <%= form.text_area :description %>
+              </p>
+              <p>
+                <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
+                <%= form.label :Add_to_mine %>
+                <br>
+
+                <%= check_box_tag :add_quest_to_someone, 1, false %>
+                <%= form.label :Send_to_other_user %>
+                <br>
+                <%= form.label :Send_to_name %>
+                <%= form.text_field :other_user_name %>
+              </p>
+              <p>
+                <%= form.button %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </div>
 </body>

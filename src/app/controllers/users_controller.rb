@@ -15,7 +15,12 @@ class UsersController < ApplicationController
 
   def create
     @quest = Quest.new(quest_params)
-    @quest.save
+
+    if @quest.save!
+      flash[:success] = 'Quest succesfully created'
+    else
+      flash[:error] = 'error: quest not created'
+    end
     @users_quest = UsersQuest.new(user_id: current_user.id,
                                   quest_id: @quest.id, status: 0)
     @users_quest.save
@@ -24,15 +29,35 @@ class UsersController < ApplicationController
     if params[:add_quest_to_mine_quests].eql?('1')
       @users_quest = UsersQuest.new(user_id: current_user.id,
                                     quest_id: @quest.id, status: 1)
-      @users_quest.save
+
+      if @users_quest.save!
+        flash[:success] = 'Quest addded to my quests'
+      else
+        flash[:error] = 'error: quest added'
+      end
+
     end
     #sending quest to other user
     if params[:add_quest_to_someone].eql?('1')
-      puts params[:other_user_id]
-      @users_quest = UsersQuest.new(user_id: params[:other_user_id],
-                                    quest_id: @quest.id, status: 1)
-      @users_quest.save
+      con = PG.connect dbname: 'dbs_development' , user: 'majka', password: 'Leafeon'
+      user = User.find_by(name: params[:quest][:other_user_name])
+      if user
+        @users_quest = UsersQuest.new(user_id: user.id,
+                                      quest_id: @quest.id, status: 10)
+
+        if @users_quest.save!
+        flash[:success] = 'Quest send'
+          puts 'send'
+        else
+          flash[:error] = 'error: quest not send'
+        end
+      else
+      flash[:alert] = 'no user with this name'
+        puts 'nenasiel'
+      end
+
     end
+    redirect_to users_path
   end
 
   private
