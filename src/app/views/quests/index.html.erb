@@ -1,8 +1,9 @@
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -49,7 +50,12 @@
               </ul>
             </li> -->
             <li class="dropdown">
+              Lvl: <%= current_user.level %>
+              Score: <%=current_user.score %>
+            </li>
+            <li class="dropdown">
               <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="http://lorempixel.com/100/100/people/9/" class="img-responsive img-thumbnail img-circle"> <%=current_user.name %></a>
+            <li><a href="#">Logout</a></li>
               <ul class="dropdown-menu dropdown-block" role="menu">
                 <li><a href="#">Profil edition</a></li>
                 <li><a href="#">Admin</a></li>
@@ -66,6 +72,12 @@
   <div id="sidebar-wrapper">
     <aside id="sidebar">
       <ul id="sidemenu" class="sidebar-nav">
+        <li>
+          <a href="/home">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">Home</span>
+          </a>
+        </li>
         <li>
           <a href="/quests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
@@ -96,8 +108,6 @@
 
           <% accepted = current_user.quests.where(:users_quests => {status: '1'}).order('id').paginate(page: params[:page], per_page: 7) %>
           <% accepted.each  do |quest|    %>
-
-
 
 
             <div class="list-group">

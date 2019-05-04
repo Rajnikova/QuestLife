@@ -13,7 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //x= require turbolinks
-//= require bootstrap
+//x= require bootstrap
 //= require jquery
 //= require jquery_ujs
 // neda znovu dokonceny

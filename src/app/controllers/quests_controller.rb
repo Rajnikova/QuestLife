@@ -13,6 +13,7 @@ class QuestsController < ApplicationController
   def complete
     puts 'completed'
     puts params[:completed_quest_id]
+
     connection = current_user.users_quests.where(quest_id: params[:completed_quest_id], status: 1).first
     if connection.status.eql?(1)
       connection.status = 2
@@ -21,7 +22,10 @@ class QuestsController < ApplicationController
   end
 
   def accept
+    #completing quest
     quest = Quest.find(params[:quest_id])
+    current_user.addScore(quest.reward)
+    current_user.save
     #netreba asi daj tam rovno id
     quest.users_quests.where(user_id: current_user.id, status: 1).first.delete
     @users_quest = UsersQuest.new(user_id: current_user.id,

@@ -20,7 +20,14 @@
 # end
 #
 #
+
+
 con = PG.connect dbname: 'dbs_development' , user: 'majka', password: 'Leafeon'
+
+con.exec 'INSERT INTO users (name, password, email, level, score, created_at, updated_at)
+SELECT concat(\'User \', i), concat(\'Heslo \', i), concat(\'User\', i,\'@mail.com\',), floor(random() * 100 + 1), floor(random() * 1000), now(), now()
+FROM generate_series(1, 1000000) s(i);'
+
 con.exec 'INSERT INTO quests (task, description, reward)
 SELECT concat(\'Quest \', i),concat(\'test\'), floor(random() * 100 + 1) FROM generate_series(1, 1000000) s(i);'
 

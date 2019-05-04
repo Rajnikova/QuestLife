@@ -4,6 +4,9 @@ class LoginController < ApplicationController
     @quests = Quest.all
     @users_quests = UsersQuest.all
   end
+  def show
+
+  end
   def new
 
   end
