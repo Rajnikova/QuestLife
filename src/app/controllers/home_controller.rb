@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     require 'will_paginate/array'
     @new_quests = UsersQuest.where(user_id: current_user.id, status: 10)
     @users = User.all
-    @top_user = User.all.max_by { |user| [user.level, user.score] }
+    @top_user = TopUser.last
   
     con = PG.connect dbname: 'dbs_development', user: 'majka', password: 'Leafeon'
   

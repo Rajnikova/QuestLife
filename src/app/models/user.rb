@@ -5,8 +5,16 @@ class User < ApplicationRecord
   has_many :rooms, through: :users_rooms
 
   def addScore(reward)
-    self.score+=reward
-
-    #prida lvl
+    self.score += reward
+    if self.score > 1000
+      self.score -= 1000
+      self.level += 1
+    end
+    top = TopUser.last
+    if top.level < self.level
+      new_top = TopUser.new(user_id: self.id,
+                            level: self.level, score: self.score)
+      new_top.save
+    end
   end
 end
