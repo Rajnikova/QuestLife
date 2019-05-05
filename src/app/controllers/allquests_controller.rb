@@ -11,8 +11,9 @@ class AllquestsController < ApplicationController
     @users_quest = UsersQuest.new(user_id: current_user.id,
                                   quest_id: quest.id, status: 1)
     puts params[:quest_id]
-    if @users_quests.save!
+    if @users_quest.save!
       flash[:success] = 'Quest successfully added'
+      puts 'pridalo'
     else
       flash[:error] = 'error: quest not added'
     end

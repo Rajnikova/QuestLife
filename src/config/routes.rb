@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get    '/quest_detail',   to: 'quest_detail#index'
   get    '/created_quests', to: 'created_quests#index'
   delete '/created_quests', to: 'created_quests#delete'
+  post   '/created_quests', to: 'created_quests#index'
   delete '/new_quests',     to: 'new_quests#delete'
   get    '/new_quests',     to: 'new_quests#index'
   get    '/rooms',          to: 'rooms#index'
