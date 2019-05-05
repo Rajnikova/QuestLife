@@ -106,3 +106,31 @@ INSERT INTO "users_quests" ("id", "user_id", "quest_id", "status", "created_at",
 INSERT INTO "logins" ("id", "created_at", "updated_at") VALUES (DEFAULT, DEFAULT, DEFAULT), (DEFAULT, DEFAULT, DEFAULT);
 INSERT INTO "quests" ("id", "task", "description", "reward") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, DEFAULT)[0m
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (515.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "dbs_test"[0m
+  [1m[35m (1084.5ms)[0m  [1m[35mCREATE DATABASE "dbs_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "quests" CASCADE[0m
+  [1m[35m (157.8ms)[0m  [1m[35mCREATE TABLE "quests" ("id" bigserial primary key, "task" character varying, "description" character varying, "reward" integer)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (132.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "password" character varying, "email" character varying, "level" integer, "score" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users_quests" CASCADE[0m
+  [1m[35m (82.8ms)[0m  [1m[35mCREATE TABLE "users_quests" ("id" bigserial primary key, "user_id" bigint, "quest_id" bigint, "status" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (81.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_quests_on_quest_id" ON "users_quests"  ("quest_id")[0m
+  [1m[35m (72.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_quests_on_user_id" ON "users_quests"  ("user_id")[0m
+  [1m[35m (122.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (31.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190309184526)[0m
+  [1m[35m (24.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190305080035),
+(20190309173812);
+
+[0m
+  [1m[35m (161.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-05-05 06:47:39.799666"], ["updated_at", "2019-05-05 06:47:39.799666"]]
+  [1m[35m (26.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

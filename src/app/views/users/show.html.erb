@@ -96,13 +96,19 @@
         <li>
           <a href="/users">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">Create quest</span>
+            <span class="sidebar-title">Create quests</span>
           </a>
         </li>
         <li>
           <a href="/allquests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">All quests</span>
+            <span class="sidebar-title">All quest</span>
+          </a>
+        </li>
+        <li>
+          <a href="/rooms">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">Rooms</span>
           </a>
         </li>
       </ul>
@@ -112,7 +118,7 @@
     <!-- stred -->
     <div class="container">
       <div class="row">
-        <div class="well">
+        <div class="well" align="center">
           <h1 class="text-center">Create/Send quest</h1>
           <% flash.each do |key, value| %>
 
@@ -120,10 +126,7 @@
           <% end %>
           <div class="form-box">
             <%= form_for(:quest, url: users_path) do |form| %>
-              <% flash.each do |key, value| %>
 
-                <div class="alert alert-<%= key %>"><%= value %></div>
-              <% end %>
               <p>
                 <%= form.label :Quest %><br>
                 <%= form.text_area :task %>
@@ -144,7 +147,7 @@
                 <%= check_box_tag :add_quest_to_someone, 1, false %>
                 <%= form.label :Send_to_other_user %>
                 <br>
-                <%= form.label :Send_to_name %>
+                <%= form.label :by_name %>
                 <%= form.text_field :other_user_name %>
               </p>
               <p>

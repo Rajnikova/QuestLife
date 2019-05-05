@@ -15,7 +15,7 @@ class HomeController < ApplicationController
                           WHERE uq.status = 2) AS tab
                        GROUP BY qi
                        ORDER by count(*) DESC
-                       LIMIT 10'
+                       LIMIT 7'
     @top_quest = Array.new()
     @top_quest_count = Array.new()
     result.each_with_index do |res, i|

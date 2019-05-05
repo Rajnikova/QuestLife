@@ -1,6 +1,8 @@
 class Quest < ApplicationRecord
   has_many :users_quests
   has_many :users, through: :users_quests
+  has_many :rooms_quests
+  has_many :rooms, through: :rooms_quests
 
   def accept
     #current_user.users_quests.where(quest_id: params[:quest_id], status: 1).first.status

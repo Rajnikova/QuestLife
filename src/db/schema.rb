@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_09_184526) do
+ActiveRecord::Schema.define(version: 2019_05_05_065103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(version: 2019_03_09_184526) do
     t.string "task"
     t.string "description"
     t.integer "reward"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms_quests", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "quest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quest_id"], name: "index_rooms_quests_on_quest_id"
+    t.index ["room_id"], name: "index_rooms_quests_on_room_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,6 +57,16 @@ ActiveRecord::Schema.define(version: 2019_03_09_184526) do
     t.datetime "updated_at", null: false
     t.index ["quest_id"], name: "index_users_quests_on_quest_id"
     t.index ["user_id"], name: "index_users_quests_on_user_id"
+  end
+
+  create_table "users_rooms", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.integer "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_users_rooms_on_room_id"
+    t.index ["user_id"], name: "index_users_rooms_on_user_id"
   end
 
 end

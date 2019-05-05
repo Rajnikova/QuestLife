@@ -6,7 +6,7 @@ class CreateQuests < ActiveRecord::Migration[5.2]
       t.integer :reward
 
       t.string
-
+      t.timestamps
     end
   end
 end
