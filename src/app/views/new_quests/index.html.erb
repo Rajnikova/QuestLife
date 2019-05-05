@@ -122,7 +122,11 @@
           <h1 class="text-center">Quests send to you!</h1>
           <% @new_quests.each  do |quest|    %>
             <div class="list-group">
-              <h3>From: <%=quest.author.name %></h3>
+              <h3>From: <%=if quest.author
+                             quest.author.name
+                              else
+                              'unknown'
+                              end%></h3>
               <a href="#" class="list-group-item active">
 
                 <div class="col-sm-10">

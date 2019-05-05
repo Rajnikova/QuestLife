@@ -121,6 +121,10 @@
       <div class="row">
         <div class="well">
           <h1 class="text-center">All quests</h1>
+          <% flash.each do |key, value| %>
+
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
           <% @quests.each  do |quest|    %>
             <div class="list-group">
               <a href="#" class="list-group-item active">
@@ -152,8 +156,8 @@
                 </div>
                 <%= link_to 'Detail', quest_detail_path(quest_id: quest.id), method: 'GET' %>
                 <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
-
-
+                &nbsp;&nbsp;
+                <%= link_to 'Add to room', admin_rooms_path(quest_id: quest.id), method: 'GET' %>
 
 
               </a>

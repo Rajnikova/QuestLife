@@ -44,6 +44,6 @@ FROM generate_series(1, 1000000) s(i);'
 con.exec 'INSERT INTO rooms_quests (room_id, quest_id, created_at, updated_at)
 SELECT floor(random() * 50 + 1), floor(random() * 1000000 + 1), now(), now()
 FROM generate_series(1, 1000000) s(i);'
-con.exec 'INSERT INTO users_rooms (user_id, room_id, type, created_at, updated_at)
+con.exec 'INSERT INTO users_rooms (user_id, room_id, status, created_at, updated_at)
 SELECT floor(random() * 1000000 + 2), floor(random() * 100 + 1), floor(random() * 2), now(), now()
 FROM generate_series(1, 1000000) s(i);'

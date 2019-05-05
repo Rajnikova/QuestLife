@@ -1,9 +1,9 @@
 class NewQuestsController < ApplicationController
   def index
     @new_quests = Quest.joins(:users_quests)
-                       .where(users_quests: { status: '10',
-                                              user_id: current_user })
-                       .paginate(page: params[:page], per_page: 7)
+                      .where(users_quests: { status: '10',
+                                             user_id: current_user })
+                      .paginate(page: params[:page], per_page: 7)
   end
 
   def delete

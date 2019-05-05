@@ -6,12 +6,18 @@ class AllquestsController < ApplicationController
   end
   def new
     #accepting new quest
-    puts 'totoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo'
     puts params[:quest_id]
     quest = Quest.find(params[:quest_id])
     @users_quest = UsersQuest.new(user_id: current_user.id,
                                   quest_id: quest.id, status: 1)
     puts params[:quest_id]
-    @users_quest.save
+    if @users_quests.save!
+      flash[:success] = 'Quest successfully added'
+    else
+      flash[:error] = 'error: quest not added'
+    end
+  end
+  def show
+
   end
 end

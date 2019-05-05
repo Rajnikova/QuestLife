@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @quest = Quest.new(quest_params)
 
     if @quest.save!
-      flash[:success] = 'Quest succesfully created'
+      flash[:success] = 'Quest successfully created'
     else
       flash[:error] = 'error: quest not created'
     end

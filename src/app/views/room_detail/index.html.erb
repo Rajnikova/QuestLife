@@ -118,16 +118,65 @@
     <!-- stred -->
     <div class="container">
       <div class="row">
+        <div class="well" align="center">
+          <h1><%=@room.name %></h1>
+          <p><%=@room.description %></p>
+          <% flash.each do |key, value| %>
+
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+
+          <%if @joined.count==0 %>
+            <%= link_to 'Join', room_detail_path(rooms_id: @room.id), method: 'POST' %>
+          <%else %>
+            <%= link_to 'Leave', room_detail_path(rooms_id: @room.id), method: 'DELETE' %>
+          <%end %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
         <div class="well">
-          <h1>Task: <%=@quest.task %></h1>
-          <h4><b>Author:</b> <%=@author.name %></h4>
-          <h4><b>Description:</b></h4>
-          <p><%=@quest.description %></p>
-          <h4><b>Reward: <%=@quest.reward %></b></h4>
+          <h1 class="text-center">Room quests</h1>
+          <% @room_quests.each  do |quest|    %>
+            <div class="list-group">
+              <a href="#" class="list-group-item active">
+
+
+                <div class="col-sm-10">
+                  <p class="list-group-item-heading"> <%= quest.task %> </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> reward: </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= quest.reward %> </p>
+                </div>
+                <div class="col-sm-6">
+                  <p class="list-group-item-heading"> </p>
+                </div>
+                <div class="col-sm-2">
+                  <p class="list-group-item-heading"> Accepted times:</p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 1).count %> </p>
+                </div>
+                <div class="col-sm-2">
+                  <p class="list-group-item-heading">Completed times:</p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 2).count %> </p>
+                </div>
+                <%= link_to 'Detail', quest_detail_path(quest_id: quest.id), method: 'GET' %>
+                <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
 
 
 
-          <%= link_to 'Accept', quest_accept_path(@quest), method: 'POST' %>
+
+              </a>
+            </div>
+          <% end %>
+          <%=will_paginate @room_quests %>
 
         </div>
       </div>
