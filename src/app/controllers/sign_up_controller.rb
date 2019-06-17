@@ -26,12 +26,14 @@ class SignUpController < ApplicationController
     if valid
       puts 'user name ok'
       @user = User.new(user_params)
+      puts @user
       @user.score = 0
       @user.level = 1
       @user.save
 
       if @user
         log_in @user
+        puts 'logged, redirecting'
         redirect_to @user
       end
     else
@@ -42,7 +44,10 @@ class SignUpController < ApplicationController
 
   private
   def user_params
+    #crypt_password = BCrypt::Password.create(params[:sign_up][:password])
+    #puts crypt_password
     params.require(:sign_up).permit(:name, :password, :email)
+    #params.require(:sign_up).permit(:name, crypt_password, :email)
   end
 
   def has_same_name

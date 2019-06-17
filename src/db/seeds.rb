@@ -22,31 +22,31 @@
 #
 
 
-con = PG.connect dbname: 'dbs_development' , user: 'majka', password: 'Leafeon'
+con = PG.connect dbname: 'dbs_development' , user: 'postgres', password: 'dbs'
 
 
-con.exec 'INSERT INTO users (name, password, email, level, score, created_at, updated_at)
+con.exec 'INSERT INTO users (name, password_digest, email, level, score, created_at, updated_at)
 SELECT concat(\'User \', i), concat(\'Heslo \', i), concat(\'User\', i,\'@mail.com\'), floor(random() * 1000 + 1), floor(random() * 1000), now(), now()
-FROM generate_series(1, 1000000) s(i);'
+FROM generate_series(1, 100) s(i);'
 
 con.exec 'INSERT INTO quests (task, description, reward, created_at, updated_at)
 SELECT concat(\'Quest \', i), concat(\'test\'), floor(random() * 100 + 1), now(), now()
-FROM generate_series(1, 10000000) s(i);'
+FROM generate_series(1, 100) s(i);'
 
 con.exec 'INSERT INTO users_quests (user_id, quest_id, status, created_at, updated_at)
 SELECT floor(random() * 8 + 2), floor(random() * 1000000 + 1), floor(random() * 3), now(), now()
-FROM generate_series(1, 1000000) s(i);'
+FROM generate_series(1, 100) s(i);'
 
 
 con.exec 'INSERT INTO rooms (name, description, created_at, updated_at)
 SELECT concat(\'Room \', i), concat(\'room description \', i), now(), now()
-FROM generate_series(1, 1000000) s(i);'
+FROM generate_series(1, 100) s(i);'
 con.exec 'INSERT INTO rooms_quests (room_id, quest_id, created_at, updated_at)
 SELECT floor(random() * 50 + 1), floor(random() * 1000000 + 1), now(), now()
-FROM generate_series(1, 1000000) s(i);'
+FROM generate_series(1, 100) s(i);'
 con.exec 'INSERT INTO users_rooms (user_id, room_id, status, created_at, updated_at)
 SELECT floor(random() * 1000000 + 2), floor(random() * 100 + 1), floor(random() * 2), now(), now()
-FROM generate_series(1, 1000000) s(i);'
+FROM generate_series(1, 100) s(i);'
 
 con.exec 'INSERT INTO top_users (user_id, level, score, created_at, updated_at)
 SELECT floor(random() * 1000000 + 1), floor(random() * 1000 + 1), floor(random() * 1000), now(), now()

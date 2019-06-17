@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :quests, through: :users_quests
   has_many :users_rooms
   has_many :rooms, through: :users_rooms
+  has_secure_password
 
   def addScore(reward)
     self.score += reward
