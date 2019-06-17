@@ -1,12 +1,14 @@
 class HomeController < ApplicationController
   def index
     require 'will_paginate/array'
+    if current_user
     @new_quests = UsersQuest.where(user_id: current_user.id, status: 10)
+    end
     @users = User.all
     @top_user = TopUser.last
-  
+
     con = PG.connect dbname: 'dbs_development', user: 'majka', password: 'Leafeon'
-  
+
     result = con.exec 'SELECT tab.qi quest_id, count(*) completed
                        FROM
                          (SELECT quests.id qi, *
@@ -25,4 +27,5 @@ class HomeController < ApplicationController
     @top_quest = @top_quest.paginate(page: params[:page], per_page: 7)
 
   end
+
 end

@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   def addScore(reward)
     self.score += reward
-    if self.score > 1000
+    while self.score > 1000
       self.score -= 1000
       self.level += 1
     end

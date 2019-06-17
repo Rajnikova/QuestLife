@@ -47,18 +47,24 @@
               </ul>
             </li> -->
             <li class="dropdown">
-              Lvl: <%= current_user.level %>
-              Score: <%=current_user.score %>
-            </li>
-            <li class="dropdown">
+              <%if current_user %>
+              <li>
+                <%= current_user.name%>
+              </li>
+              <li></li>
+              <li class="dropdown">
+                Lvl: <%= current_user.level %>
+                Score: <%=current_user.score %>
+              </li>
+              <li class="dropdown">
+                <%= link_to 'Logout', login_path(), method: 'DELETE' %>
+              </li>
 
-              <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="http://lorempixel.com/100/100/people/9/" class="img-responsive img-thumbnail img-circle"> <%=current_user.name %></a>
-              <ul class="dropdown-menu dropdown-block" role="menu">
-                <li><a href="#">Profil edition</a></li>
-                <li><a href="#">Admin</a></li>
-                <li><a href="#">Logout</a></li>
-              </ul>
-            </li>
+            <%else %>
+              <li>
+              <h4><a href="/login">Login</a></h4>
+              </li>
+            <%end %>
 
           </ul>
         </div>
@@ -76,6 +82,7 @@
             <span class="sidebar-title">Home</span>
           </a>
         </li>
+        <%if current_user %>
         <li>
           <a href="/new_quests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
@@ -100,6 +107,7 @@
             <span class="sidebar-title">Create quest</span>
           </a>
         </li>
+          <%end %>
         <li>
           <a href="/allquests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
@@ -155,10 +163,11 @@
                   <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 2).count %> </p>
                 </div>
                 <%= link_to 'Detail', quest_detail_path(quest_id: quest.id), method: 'GET' %>
+                <%if current_user %>
                 <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
                 &nbsp;&nbsp;
                 <%= link_to 'Add to room', admin_rooms_path(quest_id: quest.id), method: 'GET' %>
-
+                  <%end%>
 
               </a>
             </div>

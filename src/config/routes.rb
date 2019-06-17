@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post   '/sign_up',        to: 'sign_up#create'
   get    '/login',          to: 'login#new'
   post   '/login',          to: 'login#create'
+  delete '/login',          to: 'login#logout'
   delete '/logout',         to: 'login#destroy'
   get    '/quests',         to: 'quests#index'
   patch  '/quests',         to: 'quests#complete'
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   get    '/create_room',    to: 'create_room#index'
   get    '/admin_rooms',    to: 'admin_rooms#index'
   put    '/admin_rooms',    to: 'admin_rooms#add_to_room'
+  get    '/home',           to: 'home#index'
 
   resources :quests do
     post :accept

@@ -2,7 +2,9 @@ class RoomDetailController < ApplicationController
   def index
     @room = Room.find(params[:room_id])
     @room_quests = @room.quests.paginate(page: params[:page], per_page: 7)
-    @joined = @room.users_rooms.where(user_id: current_user.id)
+    if current_user
+      @joined = @room.users_rooms.where(user_id: current_user.id)
+    end
   end
 
   def join

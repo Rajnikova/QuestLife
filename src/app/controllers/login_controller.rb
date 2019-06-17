@@ -17,7 +17,7 @@ class LoginController < ApplicationController
       if user.authenticate(params[:login][:password])
         puts 'password ok'
         log_in user
-        redirect_to user
+        redirect_to home_path
       else
       puts 'wrong passsword'
       flash[:error] = 'Wrong password'
@@ -36,5 +36,7 @@ class LoginController < ApplicationController
     #  render 'new'
     #end
   end
-
+  def logout
+    log_out
+  end
 end
