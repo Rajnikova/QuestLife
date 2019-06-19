@@ -28,6 +28,8 @@ body {
 }
 
 #wrapper {
+  background: lightblue;
+  min-height: 100%;
   padding-top: 50px;
   padding-left: 0;
   -webkit-transition: all .5s ease;
@@ -176,6 +178,10 @@ body {
   background: #6aa3d5 !important;
   color: #fff !important;
 }
+.sidebar-nav li:nth-child(8) a {
+  background: #245682 !important;
+  color: #fff !important;
+}
 
 a.list-group-item {
   height:auto;
@@ -194,4 +200,8 @@ a.list-group-item.active small {
 
 .form-box{
   width: 250px
+}
+
+.main {
+  background: red;
 }
