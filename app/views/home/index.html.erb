@@ -1,1 +1,194 @@
-hello
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+<div id="navbar-wrapper">
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">QuestLife</a>
+        </div>
+
+        <div id="navbar-collapse" class="collapse navbar-collapse">
+          <!--
+         <form class="navbar-form navbar-left" role="search">
+           <div class="input-group">
+             <input type="text" class="form-control" placeholder="Search">
+             <span class="input-group-btn">
+                                   <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                               </span>
+           </div> -->
+
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <!--
+            <li class="dropdown">
+              <a id="flag" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="http://www.country-dialing-codes.net/img/png-country-4x2-fancy-res-1280x960/gb.png" alt="English" width="28px" height="18px">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-flag" role="menu">
+                <li>
+                  <a href="#">
+                    <img src="http://www.country-dialing-codes.net/img/png-country-4x2-flat-res-640x480/gf.png" alt="Français" width="28px" height="18px">
+                    <span>Français</span>
+                  </a>
+                </li>
+              </ul>
+            </li> -->
+            <%if current_user %>
+              <li>
+                <%= current_user.name%>
+              </li>
+              <li></li>
+              <li class="dropdown">
+                Lvl: <%= current_user.level %>
+                Score: <%=current_user.score %>
+              </li>
+              <li class="dropdown">
+                <%= link_to 'Logout', login_path(), method: 'DELETE' %>
+              </li>
+
+            <%else %>
+              <li>
+                <h4><a href="/login">Login</a></h4>
+              </li>
+            <%end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+    <aside id="sidebar">
+      <ul id="sidemenu" class="sidebar-nav">
+        <li>
+          <a href="/home">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">Home</span>
+          </a>
+        </li>
+        <%if current_user %>
+        <li>
+          <a href="/new_quests">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">New quests</span>
+          </a>
+        </li>
+        <li>
+          <a href="/quests">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">My accepted Quests</span>
+          </a>
+        </li>
+        <li>
+          <a href="/created_quests">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">My created Quests</span>
+          </a>
+        </li>
+        <li>
+          <a href="/users">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">Create quest</span>
+          </a>
+        </li>
+          <%end %>
+        <li>
+          <a href="/allquests">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">All quests</span>
+          </a>
+        </li>
+        <li>
+          <a href="/rooms">
+            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-title">Rooms</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <main id="page-content-wrapper" role="main">
+    <!-- stred -->
+
+    <div class="container">
+      <div class="row">
+        <div class="well">
+          <%if !current_user %>
+          <h1>WELCOME!!! </h1>
+            <a href="/login">
+              <h3>join for free</h3>
+            </a>
+              <h4>Send quest to your friend</h4>
+              <h4>Accept existing or create new quests!</h4>
+
+          <%end %>
+        </div>
+      </div>
+    </div>
+    <%if @current_user %>
+      <%unless @new_quests.count==0 %>
+      <div class="container">
+        <div class="row">
+          <div class="well">
+            <div class="notification">
+
+                <h1>YOU HAVE NEW QUEST!!!</h1>
+
+            </div>
+            <a href="/new_quests">See new Quests </a>
+          </div>
+        </div>
+      </div>
+      <%end %>
+    <%end %>
+    <% if @top_user && @top_user.user %>
+    <div class="container">
+      <div class="row">
+        <div class="well">
+         <h2>Top user</h2>
+          <div class="row">
+            <div class="list-group">
+
+
+                <div class="col-sm-2">
+                  <p class="list-group-item-heading"> <%= @top_user.user.name%> </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> Level: </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= @top_user.level %> </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> Score:  </p>
+                </div>
+                <div class="col-sm-1">
+                  <p class="list-group-item-heading"> <%= @top_user.score %> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+     <%end %>
+    
+
+  </main>
+</div>
+</body>

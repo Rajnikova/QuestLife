@@ -25,7 +25,6 @@ class QuestsController < ApplicationController
     #completing quest
     quest = Quest.find(params[:quest_id])
 
-    con = PG.connect dbname: 'dbs_development' , user: 'majka', password: 'Leafeon'
 
 
 
