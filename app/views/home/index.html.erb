@@ -155,6 +155,7 @@
       </div>
       <%end %>
     <%end %>
+    <% if @top_user && @top_user.user %>
     <div class="container">
       <div class="row">
         <div class="well">
@@ -164,11 +165,7 @@
                 <!--center -->
 
                 <div class="col-sm-2">
-                  <p class="list-group-item-heading"> <%= if @top_user.user
-                                                            @top_user.user.name
-                                                          else
-                                                            'unknown'
-                                                          end  %> </p>
+                  <p class="list-group-item-heading"> <%= @top_user.user.name%> </p>
                 </div>
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> Level: </p>
@@ -187,7 +184,7 @@
           </div>
       </div>
     </div>
-
+     <%end %>
     <div class="container">
       <div class="row">
         <div class="well">
