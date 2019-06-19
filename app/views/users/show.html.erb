@@ -147,6 +147,11 @@
                 <%= form.label :description %><br>
                 <%= form.text_area :description %>
               </p>
+              <br>
+
+              <%= check_box_tag :make_public, 1, false %>
+              <%= form.label :public %>
+              <br>
               <p>
                 <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
                 <%= form.label :Add_to_mine %>

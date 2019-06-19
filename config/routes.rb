@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post   '/created_quests', to: 'created_quests#index'
   delete '/new_quests',     to: 'new_quests#delete'
   get    '/new_quests',     to: 'new_quests#index'
+  post   '/new_quests',     to: 'new_quests#new'
   get    '/rooms',          to: 'rooms#index'
   get    '/room_detail',    to: 'room_detail#index'
   post   '/room_detail',    to: 'room_detail#join'

@@ -6,6 +6,10 @@ class User < ApplicationRecord
   has_secure_password
 
   def addScore(reward)
+    unless reward
+      reward=0
+    end
+
     self.score += reward
     while self.score > 1000
       self.score -= 1000

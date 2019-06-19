@@ -4,6 +4,7 @@ class CreateQuests < ActiveRecord::Migration[5.2]
       t.string :task
       t.string :description
       t.integer :reward
+      t.boolean :public
 
       t.string
       t.timestamps

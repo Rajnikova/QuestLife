@@ -1,6 +1,6 @@
 class AllquestsController < ApplicationController
   def index
-    @quests = Quest.all.order('id').paginate(page: params[:page], per_page: 7)
+    @quests = Quest.where(public: true).order('id').paginate(page: params[:page], per_page: 7)
     @users_quests = UsersQuest.all
 
   end

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_05_05_115505) do
     t.string "task"
     t.string "description"
     t.integer "reward"
+    t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
