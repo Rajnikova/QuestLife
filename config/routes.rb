@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     post :accept
   end
   Rails.application.routes.draw do
-    root 'index#index'
+    root 'home#index'
   end
 end
 
