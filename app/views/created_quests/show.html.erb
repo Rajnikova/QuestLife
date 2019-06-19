@@ -65,7 +65,6 @@
             <%else %>
               offline
             <%end %>
-            </li>
           </ul>
         </div>
       </div>
@@ -83,31 +82,31 @@
           </a>
         </li>
         <%if current_user %>
-        <li>
-          <a href="/new_quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">New quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">My accepted Quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/created_quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">My created Quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/users">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">Create quest</span>
-          </a>
-        </li>
-          <%end %>
+          <li>
+            <a href="/new_quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">New quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">My accepted Quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/created_quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">My created Quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">Create quest</span>
+            </a>
+          </li>
+        <%end %>
         <li>
           <a href="/allquests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
@@ -164,6 +163,7 @@
                 </div>
                 <%= link_to 'Detail', quest_detail_path(quest_id: quest.id), method: 'GET' %>
                 <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
+                <%= link_to 'Add to room', admin_rooms_path(quest_id: quest.id), method: 'GET' %>
                 <%= link_to 'Delete', created_quests_path(quest_id: quest.id), method: 'DELETE' %>
               </a>
             </div>
