@@ -39,7 +39,6 @@ class UsersController < ApplicationController
     end
     #sending quest to other user
     if params[:add_quest_to_someone].eql?('1')
-      con = PG.connect dbname: 'dbs_development' , user: 'majka', password: 'Leafeon'
       user = User.find_by(name: params[:quest][:other_user_name])
       if user
         @users_quest = UsersQuest.new(user_id: user.id,

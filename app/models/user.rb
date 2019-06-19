@@ -12,7 +12,7 @@ class User < ApplicationRecord
       self.level += 1
     end
     top = TopUser.last
-    if top.level < self.level
+    if !top || top.level < self.level
       new_top = TopUser.new(user_id: self.id,
                             level: self.level, score: self.score)
       new_top.save
