@@ -46,5 +46,8 @@ Rails.application.routes.draw do
   resources :allquests do
     post :accept
   end
+  Rails.application.routes.draw do
+    root 'home#index'
+  end
 end
 
