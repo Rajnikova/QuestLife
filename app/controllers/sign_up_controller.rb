@@ -34,7 +34,7 @@ class SignUpController < ApplicationController
       if @user
         log_in @user
         puts 'logged, redirecting'
-        redirect_to @user
+        redirect_to home_path
       end
     else
       redirect_to sign_up_path

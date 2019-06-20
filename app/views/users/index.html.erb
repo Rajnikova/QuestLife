@@ -96,31 +96,31 @@
           </a>
         </li>
         <%if current_user %>
-        <li>
-          <a href="/new_quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">New quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">My accepted Quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/created_quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">My created Quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/create_quest">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">Create quest</span>
-          </a>
-        </li>
-          <%end%>
+          <li>
+            <a href="/new_quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">New quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">My accepted Quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/created_quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">My created Quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/create_quest">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">Create quest</span>
+            </a>
+          </li>
+        <%end%>
         <li>
           <a href="/allquests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
@@ -153,62 +153,53 @@
 
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
-          <%if current_user %>
-            <%if @joined.count==0 %>
-              |<%= link_to 'Join', room_detail_path(rooms_id: @room.id), method: 'POST' %>|
-            <%else %>
-              |<%= link_to 'Leave', room_detail_path(rooms_id: @room.id), method: 'DELETE' %>
-              |	&nbsp;	&nbsp;|
-              <%= link_to 'Members', users_path(rooms_id: @room.id), method: 'GET' %>|
-            <%end %>
 
-          <%end%>
         </div>
       </div>
     </div>
     <div class="container">
       <div class="row">
         <div class="well">
-          <h1 class="text-center">Room quests</h1>
-          <% @room_quests.each  do |quest|    %>
-            <div class="list-group">
-              <a href="#" class="list-group-item active">
+          <h1 class="text-center">Admins</h1>
+          <table>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Score</th>
+            <th></th>
+            <% @admins.each  do |admin|    %>
+              <tr>
+                <th><%=admin.name %></th>
+                <th><%=admin.level %></th>
+                <th><%=admin.score%></th>
+                <th></th>
+              </tr>
 
+            <% end %>
+          </table>
+          <%=will_paginate @members %>
+          <h1 class="text-center">Members</h1>
+            <table>
+              <th>Name</th>
+              <th>Level</th>
+              <th>Score</th>
+              <th></th>
+              <% @members.each  do |member|    %>
+                <tr>
+                  <th><%=member.name %></th>
+                  <th><%=member.level %></th>
+                  <th><%=member.score%></th>
+                  <th>
+                    <%if current_user.can_add_admins?(@room.id) != 0 %>
 
-                <div class="col-sm-10">
-                  <p class="list-group-item-heading"> <%= quest.task %> </p>
-                </div>
-                <div class="col-sm-1">
-                  <p class="list-group-item-heading"> reward: </p>
-                </div>
-                <div class="col-sm-1">
-                  <p class="list-group-item-heading"> <%= quest.reward %> </p>
-                </div>
-                <div class="col-sm-6">
-                  <p class="list-group-item-heading"> </p>
-                </div>
-                <div class="col-sm-2">
-                  <p class="list-group-item-heading"> Accepted times:</p>
-                </div>
-                <div class="col-sm-1">
-                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 1).count %> </p>
-                </div>
-                <div class="col-sm-2">
-                  <p class="list-group-item-heading">Completed times:</p>
-                </div>
-                <div class="col-sm-1">
-                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 2).count %> </p>
-                </div>
-                <%= link_to 'Detail', quest_detail_path(quest_id: quest.id), method: 'GET' %>
-                <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
+                      <%= link_to 'Make Admin', users_path(rooms_id: @room.id, user_id: member.id), method: 'PUT' %>
+                    <%end %>
+                  </th>
 
+                </tr>
 
-
-
-              </a>
-            </div>
-          <% end %>
-          <%=will_paginate @room_quests %>
+              <% end %>
+            </table>
+            <%=will_paginate @members %>
 
         </div>
       </div>

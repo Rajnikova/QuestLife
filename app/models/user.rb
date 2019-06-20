@@ -22,4 +22,9 @@ class User < ApplicationRecord
       new_top.save
     end
   end
+
+  def can_add_admins?(room_id)
+    type = self.users_rooms.where(room_id: room_id, status: 0)
+    type.count
+  end
 end

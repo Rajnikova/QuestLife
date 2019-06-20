@@ -32,11 +32,13 @@ Rails.application.routes.draw do
   patch  '/home',           to: 'home#set_locale'
   get    '/about',          to: 'about#index'
   get    '/create_quest',   to: 'create_quest#index'
+  get    '/users',          to: 'users#index'
+  put    '/users',          to: 'users#make_admin'
 
   resources :quests do
     post :accept
   end
-
+  resources :users
   resources :create_quest
   resources :index
   resources :login

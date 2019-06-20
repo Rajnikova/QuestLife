@@ -1,4 +1,5 @@
 class CreateQuestController < ApplicationController
+
   def index
     @users = User.all
     @quests = Quest.all
@@ -80,3 +81,4 @@ class CreateQuestController < ApplicationController
   end
 
 end
+
