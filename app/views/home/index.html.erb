@@ -60,10 +60,22 @@
                 Score: <%=current_user.score %>
               </li>
               <li class="dropdown">
+                <%= link_to 'En', home_path(locale: :en), method: 'PATCH' %>
+              </li>
+              <li class="dropdown">
+                <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
+              </li>
+              <li class="dropdown">
                 <%= link_to 'Logout', login_path(), method: 'DELETE' %>
               </li>
 
             <%else %>
+              <li class="dropdown">
+                <%= link_to 'En', home_path(locale: :en), method: 'PATCH' %>
+              </li>
+              <li class="dropdown">
+                <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
+              </li>
               <li>
                 <h4><a href="/login">Login</a></h4>
               </li>
@@ -169,7 +181,7 @@
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">QuestLife</h1>
-          <h2 class="text-white-50 mx-auto mt-2 mb-5">Make your live funnier by sending quests to your friends</h2>
+          <h2 class="text-white-50 mx-auto mt-2 mb-5"><%=t :description, scope: :home %></h2>
           <br>
           <a href="/about" class="btn btn-primary js-scroll-trigger">About</a>
           <a href="/login" class="btn btn-primary js-scroll-trigger">Login</a>
@@ -180,3 +192,4 @@
   </main>
 </div>
 </body>
+

@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  home:
+    description: "Make your live funnier by sending quests to your friends"

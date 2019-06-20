@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get    '/admin_rooms',    to: 'admin_rooms#index'
   put    '/admin_rooms',    to: 'admin_rooms#add_to_room'
   get    '/home',           to: 'home#index'
+  patch  '/home',           to: 'home#set_locale'
   get    '/about',          to: 'about#index'
 
   resources :quests do
