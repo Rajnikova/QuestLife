@@ -1,6 +1,8 @@
 class CreateRoomController < ApplicationController
   def index
-
+    if current_user
+      @has_new_quest = current_user.has_new_quest?
+    end
   end
 
   def create

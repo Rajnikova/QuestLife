@@ -2,6 +2,9 @@ class SignUpController < ApplicationController
   def index
     @users = User.all
     @same_name = 'hidden'
+    if current_user
+      @has_new_quest = current_user.has_new_quest?
+    end
   end
 
   def new

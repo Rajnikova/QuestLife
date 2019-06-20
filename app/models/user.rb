@@ -27,4 +27,9 @@ class User < ApplicationRecord
     type = self.users_rooms.where(room_id: room_id, status: 0)
     type.count
   end
+
+  def has_new_quest?
+    self.users_quests.where(status: 10).count
+
+  end
 end

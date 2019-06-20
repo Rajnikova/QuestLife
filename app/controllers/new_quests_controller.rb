@@ -1,5 +1,8 @@
 class NewQuestsController < ApplicationController
   def index
+    if current_user
+      @has_new_quest = current_user.has_new_quest?
+    end
     @new_quests = Quest.joins(:users_quests)
                       .where(users_quests: { status: '10',
                                              user_id: current_user })

@@ -3,6 +3,9 @@ class QuestsController < ApplicationController
     @users = User.all
     @quests = Quest.all
     @users_quests = UsersQuest.all
+    if current_user
+      @has_new_quest = current_user.has_new_quest?
+    end
   end
   def new
   end

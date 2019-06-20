@@ -90,51 +90,56 @@
       <ul id="sidemenu" class="sidebar-nav">
         <li>
           <a href="/home">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-icon"><i class="fa fa-home"></i></span>
             <span class="sidebar-title">Home</span>
           </a>
         </li>
         <%if current_user %>
-        <li>
-          <a href="/new_quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">New quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">My accepted Quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/created_quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">My created Quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/create_quest">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">Create quest</span>
-          </a>
-        </li>
-          <%end %>
+          <li>
+            <a href="/new_quests">
+              <span class="sidebar-icon new-quest"><i class="fa fa-exclamation-circle"></i></span>
+              <%if @has_new_quest > 0 %>
+                <span class="sidebar-title new-quest">New quests</span>
+              <%else %>
+                <span class="sidebar-title">New quests</span>
+              <%end %>
+
+            </a>
+          </li>
+          <li>
+            <a href="/quests">
+              <span class="sidebar-icon"><i class="fa fa-question-circle"></i></span>
+              <span class="sidebar-title">My accepted Quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/created_quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">My created Quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/create_quest">
+              <span class="sidebar-icon"><i class="fa fa-certificate"></i></span>
+              <span class="sidebar-title">Create quest</span>
+            </a>
+          </li>
+        <%end%>
         <li>
           <a href="/allquests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-icon"><i class="fa fa-clone"></i></span>
             <span class="sidebar-title">All quests</span>
           </a>
         </li>
         <li>
           <a href="/rooms">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-icon"><i class="fa fa-user"></i></span>
             <span class="sidebar-title">Rooms</span>
           </a>
         </li>
         <li>
           <a href="/about">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+            <span class="sidebar-icon"><i class="fa fa-info-circle"></i></span>
             <span class="sidebar-title">About QuestLife</span>
           </a>
         </li>

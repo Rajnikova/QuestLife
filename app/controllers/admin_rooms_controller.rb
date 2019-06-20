@@ -1,5 +1,8 @@
 class AdminRoomsController < ApplicationController
   def index
+    if current_user
+      @has_new_quest = current_user.has_new_quest?
+    end
     @rooms = current_user.rooms.where(users_rooms: { status: 0 })
                          .paginate(page: params[:page], per_page: 7)
     @quest_id = params[:quest_id]
