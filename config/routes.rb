@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get    '/create_quest',   to: 'create_quest#index'
   get    '/users',          to: 'users#index'
   put    '/users',          to: 'users#make_admin'
+  get    '/index',          to: 'index#index'
 
   resources :quests do
     post :accept
