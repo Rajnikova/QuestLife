@@ -92,7 +92,7 @@
         <li>
           <a href="/home">
             <span class="sidebar-icon"><i class="fa fa-home"></i></span>
-            <span class="sidebar-title">Home</span>
+            <span class="sidebar-title"><%=t :home, scope: :menu %></span>
           </a>
         </li>
         <%if current_user %>
@@ -100,9 +100,9 @@
             <a href="/new_quests">
               <span class="sidebar-icon new-quest"><i class="fa fa-exclamation-circle"></i></span>
               <%if @has_new_quest > 0 %>
-                <span class="sidebar-title new-quest">New quests</span>
+                <span class="sidebar-title new-quest"><%=t :new_quests, scope: :menu %></span>
               <%else %>
-                <span class="sidebar-title">New quests</span>
+                <span class="sidebar-title"><%=t :new_quests, scope: :menu %></span>
               <%end %>
 
             </a>
@@ -110,38 +110,38 @@
           <li>
             <a href="/quests">
               <span class="sidebar-icon"><i class="fa fa-question-circle"></i></span>
-              <span class="sidebar-title">My accepted Quests</span>
+              <span class="sidebar-title"><%=t :my_quests, scope: :menu %></span>
             </a>
           </li>
           <li>
             <a href="/created_quests">
               <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-              <span class="sidebar-title">My created Quests</span>
+              <span class="sidebar-title"><%=t :created_quests, scope: :menu %></span>
             </a>
           </li>
           <li>
             <a href="/create_quest">
               <span class="sidebar-icon"><i class="fa fa-certificate"></i></span>
-              <span class="sidebar-title">Create quest</span>
+              <span class="sidebar-title"><%=t :create_quest, scope: :menu %></span>
             </a>
           </li>
         <%end%>
         <li>
           <a href="/allquests">
             <span class="sidebar-icon"><i class="fa fa-clone"></i></span>
-            <span class="sidebar-title">All quests</span>
+            <span class="sidebar-title"><%=t :all_quests, scope: :menu %></span>
           </a>
         </li>
         <li>
           <a href="/rooms">
             <span class="sidebar-icon"><i class="fa fa-user"></i></span>
-            <span class="sidebar-title">Rooms</span>
+            <span class="sidebar-title"><%=t :rooms, scope: :menu %></span>
           </a>
         </li>
         <li>
           <a href="/about">
             <span class="sidebar-icon"><i class="fa fa-info-circle"></i></span>
-            <span class="sidebar-title">About QuestLife</span>
+            <span class="sidebar-title"><%=t :about, scope: :menu %></span>
           </a>
         </li>
       </ul>

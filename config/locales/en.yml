@@ -31,5 +31,38 @@
 
 en:
   hello: "Hello world"
+  menu:
+    login: "login"
+    logout: "Log out"
+    home: "Home"
+    new_quests: "New quest"
+    my_quests: "My quests"
+    created_quests: "My created quests"
+    create_quest: "Create quest"
+    all_quests: "All quests"
+    rooms: "rooms"
+    about: "about"
+  models:
+    users: "Users"
+    user: "User"
+    reward: "reward"
+    task: "Task"
+    public: "Public"
+    description: "Description"
   home:
     description: "Make your live funnier by sending quests to your friends"
+  admin_rooms:
+    title: "Choose rooms"
+    select: "Select"
+  all_quests:
+    title: "All quests"
+    add: "Add"
+    add_to_room: "Add to room"
+  create_quest:
+    title: "Create/Send quest"
+    public: "Make public"
+    to_mine: "Add quest to mine"
+    to_other: "Send to other user"
+    name: "user name:"
+    trouble: "Trouble creating quest? check "
+    help: "help"
