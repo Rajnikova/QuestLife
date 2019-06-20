@@ -148,7 +148,7 @@
     <div class="container">
       <div class="row">
         <div class="well" align="center">
-          <h1 class="text-center">Create new room</h1>
+          <h1 class="text-center"><%=t :title, scope: :create_room %></h1>
           <% flash.each do |key, value| %>
 
             <div class="alert alert-<%= key %>"><%= value %></div>
@@ -156,11 +156,11 @@
           <div class="form-box">
             <%= form_for(:room, url: create_room_path) do |form| %>
               <p>
-                <%= form.label :Name %><br>
+                <%= form.label (t :room_name,scope: :models) %><br>
                 <%= form.text_field :name %>
               </p>
               <p>
-                <%= form.label :description %><br>
+                <%= form.label (t :room_description,scope: :models) %><br>
                 <%= form.text_area :description %>
               </p>
               <p>

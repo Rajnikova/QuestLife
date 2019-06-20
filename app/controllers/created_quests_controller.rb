@@ -10,6 +10,7 @@ class CreatedQuestsController < ApplicationController
     quest = Quest.find(params[:quest_id])
     quest.users_quests.delete
     quest.delete
-    flash[:success] = 'Quest deleted'
+    flash[:success] = (t :delete_s, scope: :flash)
+
   end
 end

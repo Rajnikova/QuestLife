@@ -165,11 +165,11 @@
     <div class="container">
       <div class="row">
         <div class="well">
-          <h1 class="text-center">Admins</h1>
+          <h1 class="text-center"><%=t :admins, scope: :members%></h1>
           <table>
-            <th>Name</th>
-            <th>Level</th>
-            <th>Score</th>
+            <th><%=t :name, scope: :models%></th>
+            <th><%=t :level, scope: :models%></th>
+            <th><%=t :score, scope: :models%></th>
             <th></th>
             <% @admins.each  do |admin|    %>
               <tr>
@@ -182,11 +182,11 @@
             <% end %>
           </table>
           <%=will_paginate @members %>
-          <h1 class="text-center">Members</h1>
+          <h1 class="text-center"><%=t :members, scope: :members%></h1>
             <table>
-              <th>Name</th>
-              <th>Level</th>
-              <th>Score</th>
+              <th><%=t :name, scope: :models%></th>
+              <th><%=t :level, scope: :models%></th>
+              <th><%=t :score, scope: :models%></th>
               <th></th>
               <% @members.each  do |member|    %>
                 <tr>
@@ -196,7 +196,7 @@
                   <th>
                     <%if current_user.can_add_admins?(@room.id) != 0 %>
 
-                      <%= link_to 'Make Admin', users_path(rooms_id: @room.id, user_id: member.id), method: 'PUT' %>
+                      <%= link_to (t :make_admin, scope: :members), users_path(rooms_id: @room.id, user_id: member.id), method: 'PUT' %>
                     <%end %>
                   </th>
 

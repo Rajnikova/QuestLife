@@ -18,9 +18,9 @@ class UsersController < ApplicationController
 
     con.status = 0
     if con.save!
-      flash[:success] = 'User set as admin'
+      flash[:success] = (t :admin, scope: :flash_users)
     else
-      flash[:error] = 'Adding added'
+      flash[:error] = (t :admin_e, scope: :flash_users)
     end
     redirect_to users_path(rooms_id: params[:rooms_id])
   end

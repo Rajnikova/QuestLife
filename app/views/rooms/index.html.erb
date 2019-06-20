@@ -152,7 +152,7 @@
     <div class="container">
       <div class="row">
         <div class="well">
-          <h1 class="text-center">Rooms</h1>
+          <h1 class="text-center"><%=t :title, scope: :rooms %></h1>
           <%if current_user %>
           <a href="/create_room" class="btn btn-primary js-scroll-trigger">New room</a>
             <br><br>
@@ -167,7 +167,7 @@
                   <p class="list-group-item-heading"> <%= room.name %> </p>
                 </div>
                 <div class="col-sm-1">
-                  <p class="list-group-item-heading">Users:</p>
+                  <p class="list-group-item-heading"><%=t :users, scope: :rooms %>:</p>
                 </div>
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%=room.users.count %> </p>

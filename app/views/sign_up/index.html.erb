@@ -1,11 +1,9 @@
-<head>
-  <title>QuestLife</title>
-</head>
+
 <body>
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <% provide(:title, "Log in") %>
-    <h1>Sign up</h1>
+    <h1><%=t :title, scope: :signup %></h1>
     <%= form_for(:sign_up, url: sign_up_path) do |f| %>
 
 
@@ -17,22 +15,22 @@
 
 
       </div>
-      <%= f.label :name %>
+      <%= f.label (t :name, scope: :models) %>
       <%= f.text_field :name, class: 'form-control' %>
       <br>
-      <%= f.label :Email %>
+      <%= f.label (t :email, scope: :models) %>
       <%= f.email_field  :email, class: 'form-control' %>
       <br>
-      <%= f.label :password %>
+      <%= f.label (t :password, scope: :models) %>
       <%= f.password_field :password, class: 'form-control' %>
       <br>
 
-      <%= f.label :Repeat_password %>
+      <%= f.label (t :pass_again, scope: :models) %>
       <%= f.password_field :password2, class: 'form-control' %>
       <br>
 
 
-      <%= f.submit "Sign up ", class: "btn btn-primary" %>
+      <%= f.submit (t :signup, scope: :menu), class: "btn btn-primary" %>
     <% end %>
   </div>
 

@@ -1,7 +1,5 @@
 
-<head>
-  <title>QuestLife</title>
-</head>
+
 <body>
 <div class="wrapper fadeInDown">
   <div id="formContent">
@@ -10,46 +8,23 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <% provide(:title, "Log in") %>
-    <h1>Log in</h1>
+    <h1><%=t :title, scope: :login %>></h1>
     <%= form_for(:login, url: login_path) do |f| %>
 
-      <%= f.label :name %>
+      <%= f.label (t :name, scope: :models) %>
       <%= f.text_field :name, class: 'form-control' %>
-<br>
-      <%= f.label :password %>
+      <br>
+      <%= f.label (t :password, scope: :models) %>
       <%= f.password_field :password, class: 'form-control' %>
       <br>
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit (t :login, scope: :menu), class: "btn btn-primary" %>
     <% end %>
-    <!--
+
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>-->
-    <div id="formFooter">
-      <a class="underlineHover" href="sign_up">Sign up</a>
+      <a class="underlineHover" href="sign_up"><%=t :signup, scope: :menu %>></a>
     </div>
   </div>
 
 </div>
 </body>
 
-<!--
-<div class="wrapper fadeInDown">
-  <div id="formContent"> -->
-    <!-- Tabs Titles -->
-
-
-    <!-- Login Form -->
-    <!--
-   <form>
-     <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-     <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-     <input type="submit" class="fadeIn fourth" value="Log In">
-   </form>
--->
-   <!-- Remind Passowrd -->
-
-<!--
-  </div>
-</div>
--->

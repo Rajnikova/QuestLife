@@ -32,8 +32,9 @@
 en:
   hello: "Hello world"
   menu:
-    login: "login"
+    login: "Log in"
     logout: "Log out"
+    signup: "Sign up"
     home: "Home"
     new_quests: "New quest"
     my_quests: "My quests"
@@ -45,10 +46,17 @@ en:
   models:
     users: "Users"
     user: "User"
+    user_name: "Name"
+    password: "Password"
+    email: "Email"
+    level: "Level"
+    score: "Score"
     reward: "reward"
     task: "Task"
     public: "Public"
     description: "Description"
+    room_name: "Rooem name"
+    room_description: "Description"
   home:
     description: "Make your live funnier by sending quests to your friends"
   admin_rooms:
@@ -66,3 +74,67 @@ en:
     name: "user name:"
     trouble: "Trouble creating quest? check "
     help: "help"
+  create_room:
+    title: "Create new room"
+  created_quests:
+    title: "My created quests"
+    add: "Add"
+    add_to_room: "Add to room"
+    delete: "Delete"
+  login:
+    title: "Login User:"
+  new_quests:
+    title: "Quests send to you!"
+    no_quests: "You have no new quests"
+    unknown: "Unknown"
+    from: "From"
+    add: "Add"
+    delete: "Delete"
+  my_quests:
+    accept: "Accept"
+    complete: "Complete"
+  room_detail:
+    join: "Join"
+    leave: "Leave"
+    members: "Members"
+    add: "Add"
+  rooms:
+    title: "Rooms"
+    users: "Users"
+  signup:
+    title: "Sign up"
+    pass_again: "Repeat password"
+  members:
+    admins: "Admins"
+    members: "Members"
+    make_admin: "Make admin"
+  flash:
+    quest_added: "Quest successfully added"
+    quest_not_added: "Quest not added"
+    quest_send: "Quest successfully send"
+    quest_not_send: "Quest not send"
+    no_user: "No user with this name"
+    not_created: "Quest not created"
+    created: "Quest not created"
+    reward: "Reward must be between 0-100"
+    room_s: "Room successfully created"
+    room_e: "Room not created"
+    room_join: "Room joined"
+    room_join_e: "Join failed"
+    room_left: "Room left"
+    room_left_e: "Leaving failed"
+    delete_s: "Quest deleted"
+    delete_e: "Delete failed"
+    password_wrong: "Wrong password"
+    name_wrong: "No user with this name"
+    quest_accept: "Quest successfully accepted"
+    quest_accept_e: "Quest not added"
+    quest_completed: "Quest completed, CONGRATULATION!!!"
+    quest_completed_e: "Could not save quest"
+  flash_sign:
+    name_exist: "Name already in use"
+    pass_difrent: "Different passwords"
+  flash_users:
+    admin: "User set as admin"
+    admin_e: "Process failed"
+

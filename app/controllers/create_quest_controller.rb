@@ -25,12 +25,12 @@ class CreateQuestController < ApplicationController
         puts 'is public'
       end
       if !@quest.reward || @quest.reward<0 || @quest.reward>100
-        flash[:error] = 'reward must be between 0-100'
+        flash[:error] = (t :reward, scope: :flash)
         raise ActiveRecord::Rollback, "wrong reward"
       end
 
       unless @quest.save!
-        flash[:error] = 'error: quest not created'
+        flash[:error] = (t :quest_not_created, scope: :flash)
         raise ActiveRecord::Rollback, "Quest not created"
       end
       @users_quest = UsersQuest.new(user_id: current_user.id,
@@ -44,7 +44,7 @@ class CreateQuestController < ApplicationController
                                       status: 1)
 
         unless @users_quest.save!
-          flash[:error] = 'error: quest not added'
+          flash[:error] = (t :quest_not_added, scope: :flash)
           raise ActiveRecord::Rollback, "quest not added"
         end
 
@@ -58,18 +58,18 @@ class CreateQuestController < ApplicationController
                                         status: 10)
 
           unless @users_quest.save!
-            flash[:error] = 'error: quest not send'
-            raise ActiveRecord::Rollback, "Cquest not send"
+            flash[:error] = (t :quest_not_send, scope: :flash)
+            raise ActiveRecord::Rollback, "quest not send"
           end
         else
-          flash[:error] = 'no user with this name'
+          flash[:error] = (t :no_user, scope: :flash)
           raise ActiveRecord::Rollback, "No user with this name"
 
         end
 
       end
 
-      flash[:success] = 'Quest successfully created'
+      flash[:success] = (t :quest_send, scope: :flash)
     end
     redirect_to create_quest_path
   end

@@ -22,10 +22,10 @@ class NewQuestsController < ApplicationController
                                   quest_id: quest.id, status: 1)
     puts params[:quest_id]
     if @users_quest.save!
-      flash[:success] = 'Quest successfully accepted'
+      flash[:success] = (t :quest_accept, scope: :flash)
       puts 'pridalo'
     else
-      flash[:error] = 'error: quest not added'
+      flash[:error] = (t :quest_accept_e, scope: :flash)
     end
     @users_quest = UsersQuest.where(user_id: current_user,
                                     quest_id: quest.id,

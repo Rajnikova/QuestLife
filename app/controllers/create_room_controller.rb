@@ -8,9 +8,9 @@ class CreateRoomController < ApplicationController
   def create
     room = Room.new(room_params)
     if room.save!
-      flash[:success] = 'Room succesfully created'
+      flash[:success] = (t :room_s, scope: :flash)
     else
-      flash[:error] = 'error: room not created'
+      flash[:error] = (t :room_e, scope: :flash)
     end
     author = UsersRoom.new(user_id: current_user.id,
                            room_id: room.id,

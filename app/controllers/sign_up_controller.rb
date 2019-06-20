@@ -17,12 +17,12 @@ class SignUpController < ApplicationController
     exist_user = User.find_by(name: params[:sign_up][:name])
     puts exist_user
     if params[:sign_up][:password] != params[:sign_up][:password2]
-      flash[:error] = 'Different passwords'
+      flash[:error] = (t :pass_difrent, scope: :flash_sign)
       valid = false
     end
     if exist_user
       puts 'user name exist'
-      flash[:alert] = 'Name already in use'
+      flash[:alert] = (t :name_exist, scope: :flash_sign)
       valid = false
     end
 

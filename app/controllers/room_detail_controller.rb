@@ -14,9 +14,9 @@ class RoomDetailController < ApplicationController
     @joined = UsersRoom.new(user_id: current_user.id,
                             room_id: params[:rooms_id], status: 1)
     if @joined.save!
-      flash[:success] = 'Room joined'
+      flash[:success] = (t :room_join, scope: :flash)
     else
-      flash[:error] = 'error: join failed'
+      flash[:error] = (t :room_join_e, scope: :flash)
     end
     redirect_back(fallback_location: room_detail_path)
   end
@@ -24,9 +24,9 @@ class RoomDetailController < ApplicationController
     @joined = UsersRoom.where(user_id: current_user.id,
                               room_id: params[:rooms_id], status: 1)
     if @joined.delete_all
-      flash[:success] = 'Room left'
+      flash[:success] = (t :room_left, scope: :flash)
     else
-      flash[:error] = 'error: leaving failed'
+      flash[:error] = (t :room_left_e, scope: :flash)
     end
     redirect_back(fallback_location: room_detail_path)
   end

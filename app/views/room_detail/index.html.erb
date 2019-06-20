@@ -160,11 +160,11 @@
           <% end %>
           <%if current_user %>
             <%if @joined.count==0 %>
-              |<%= link_to 'Join', room_detail_path(rooms_id: @room.id), method: 'POST' %>|
+              |<%= link_to (t :join, scope: :room_detail), room_detail_path(rooms_id: @room.id), method: 'POST' %>|
             <%else %>
-              |<%= link_to 'Leave', room_detail_path(rooms_id: @room.id), method: 'DELETE' %>
+              |<%= link_to (t :leave, scope: :room_detail), room_detail_path(rooms_id: @room.id), method: 'DELETE' %>
               |	&nbsp;	&nbsp;|
-              <%= link_to 'Members', users_path(rooms_id: @room.id), method: 'GET' %>|
+              <%= link_to (t :members, scope: :room_detail), users_path(rooms_id: @room.id), method: 'GET' %>|
             <%end %>
 
           <%end%>
@@ -177,40 +177,23 @@
           <h1 class="text-center">Room quests</h1>
           <% @room_quests.each  do |quest|    %>
             <div class="list-group">
-              <a href="#" class="list-group-item active">
+              <a href="/quest_detail?quest_id=<%=quest.id %>" class="list-group-item active">
 
-
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                   <p class="list-group-item-heading"> <%= quest.task %> </p>
                 </div>
+
                 <div class="col-sm-1">
-                  <p class="list-group-item-heading"> reward: </p>
+                  <p class="list-group-item-heading"> <%=t :reward, scope: :models %>: </p>
                 </div>
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%= quest.reward %> </p>
                 </div>
-                <div class="col-sm-6">
-                  <p class="list-group-item-heading"> </p>
-                </div>
-                <div class="col-sm-2">
-                  <p class="list-group-item-heading"> Accepted times:</p>
-                </div>
-                <div class="col-sm-1">
-                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 1).count %> </p>
-                </div>
-                <div class="col-sm-2">
-                  <p class="list-group-item-heading">Completed times:</p>
-                </div>
-                <div class="col-sm-1">
-                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 2).count %> </p>
-                </div>
-                <%= link_to 'Detail', quest_detail_path(quest_id: quest.id), method: 'GET' %>
-                <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
-
-
-
 
               </a>
+              <div class="col-sm-1 ruby-button">
+                <%= link_to (t :add, scope: :room_detail), allquests_path(quest_id: quest.id), method: 'POST' %>
+              </div>
             </div>
           <% end %>
           <%=will_paginate @room_quests %>

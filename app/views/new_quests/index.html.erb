@@ -144,22 +144,22 @@
     <div class="container">
       <div class="row">
         <div class="well">
-          <h1 class="text-center">Quests send to you!</h1>
+          <h1 class="text-center"><%=t :title, scope: :new_quests %></h1>
           <% flash.each do |key, value| %>
 
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
           <h3>
             <%=if @new_quests.count == 0
-               'You have no new quests'
+               (t :no_quests, scope: :new_quests)
              end%>
           </h3>
           <% @new_quests.each  do |quest|    %>
             <div class="list-group">
-              <h3>From: <%=if quest.author
+              <h3><%=t :from, scope: :new_quests %><%=if quest.author
                              quest.author.name
                               else
-                              'unknown'
+                                (t :uknown, scope: :new_quests)
                               end%></h3>
               <a href="/quest_detail?quest_id=<%=quest.id %>" class="list-group-item active">
 
@@ -169,7 +169,7 @@
                 </div>
 
                 <div class="col-sm-1">
-                  <p class="list-group-item-heading"> reward: </p>
+                  <p class="list-group-item-heading"><%=t :reward, scope: :models %>: </p>
                 </div>
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%= quest.reward %> </p>
@@ -177,10 +177,10 @@
 
               </a>
               <div class="col-sm-1 ruby-button">
-                <%= link_to 'Add', new_quests_path(quest_id: quest.id), method: 'POST' %>
+                <%= link_to (t :add, scope: :new_quests), new_quests_path(quest_id: quest.id), method: 'POST' %>
               </div>
               <div class="col-sm-1 ruby-button">
-                <%= link_to 'Delete', new_quests_path(quest_id: quest.id), method: 'DELETE' %>
+                <%= link_to (t :delete, scope: :new_quests), new_quests_path(quest_id: quest.id), method: 'DELETE' %>
               </div>
               <br>
             </div>

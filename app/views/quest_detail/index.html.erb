@@ -158,12 +158,12 @@
                               else
                               'unknown'
                               end%></h4>
-          <h4><b>Description:</b></h4>
+          <h4><b><%=t :description, scope: :models%></b></h4>
           <p><%=@quest.description %></p>
-          <h4><b>Reward: <%=@quest.reward %></b></h4>
+          <h4><b><%=t :reward, scope: :models%>: <%=@quest.reward %></b></h4>
 
             <%if current_user %>
-              <%= button_to 'Add', allquests_path(quest_id: @quest.id), method: 'POST' %>
+              <%= button_to (t :add, scope: :all_quests), allquests_path(quest_id: @quest.id), method: 'POST' %>
             <%end %>
 
         </div>

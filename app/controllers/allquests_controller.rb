@@ -15,10 +15,10 @@ class AllquestsController < ApplicationController
                                   quest_id: quest.id, status: 1)
     puts params[:quest_id]
     if @users_quest.save!
-      flash[:success] = 'Quest successfully added'
+      flash[:success] = (t :quest_added, scope: :flash)
       puts 'pridalo'
     else
-      flash[:error] = 'error: quest not added'
+      flash[:error] = (t :quest_not_added, scope: :flash)
     end
     redirect_to allquests_path
   end

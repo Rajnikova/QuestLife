@@ -40,9 +40,9 @@ class QuestsController < ApplicationController
         status.update!(status: 2)
 
         if status.save!
-          flash[:success] = 'Quest completed, CONGRATULATION!!!'
+          flash[:success] = (t :quest_completed, scope: :flash)
         else
-          flash[:alert] = 'error could not save quest'
+          flash[:alert] = (t :quest_completed_e, scope: :flash)
           rollback
         end
       end

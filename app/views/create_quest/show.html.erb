@@ -152,7 +152,7 @@
     <div class="container">
       <div class="row">
         <div class="well" align="center">
-          <h1 class="text-center">Create/Send quest</h1>
+          <h1 class="text-center"><%=t :title, scope: :create_quest %></h1>
           <% flash.each do |key, value| %>
 
             <div class="alert alert-<%= key %>"><%= value %></div>
@@ -161,31 +161,31 @@
             <%= form_for(:quest, url: create_quest_path) do |form| %>
 
               <p>
-                <%= form.label :Quest %><br>
+                <%= form.label (t :task, scope: :models) %><br>
                 <%= form.text_area :task %>
               </p>
               <p>
-                <%= form.label :reward %><br>
+                <%= form.label (t :reward, scope: :models) %><br>
                 <%= form.number_field :reward %>
               </p>
               <p>
-                <%= form.label :description %><br>
+                <%= form.label (t :description, scope: :models) %><br>
                 <%= form.text_area :description %>
               </p>
               <br>
 
-              <%= check_box_tag :public, 1, false %>
+              <%= check_box_tag (t :public, scope: :create_quest), 1, false %>
               <%= form.label :make_public %>
               <br>
               <p>
-                <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
+                <%= check_box_tag (t :to_mine, scope: :create_quest), 1, false %>
                 <%= form.label :Add_to_mine %>
                 <br>
 
-                <%= check_box_tag :add_quest_to_someone, 1, false %>
+                <%= check_box_tag (t :to_other, scope: :create_quest), 1, false %>
                 <%= form.label :Send_to_other_user %>
                 <br>
-                <%= form.label :by_name %>
+                <%= form.label (t :name, scope: :create_quest) %>
                 <%= form.text_field :other_user_name %>
               </p>
               <p>
@@ -193,7 +193,7 @@
               </p>
             <% end %>
           </div>
-          Trouble creating quest? check <a href="/about">help</a>
+          <%=t :trouble, scope: :create_quest %><a href="/about"><%=t :help, scope: :create_quest %></a>
         </div>
       </div>
     </div>

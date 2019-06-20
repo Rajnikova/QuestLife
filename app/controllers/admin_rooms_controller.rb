@@ -13,9 +13,9 @@ class AdminRoomsController < ApplicationController
     add = RoomsQuest.new(room_id: room.id,
                          quest_id: quest_id)
     if add.save!
-      flash[:success] = 'Quest successfully added'
+      flash[:success] = (t :quest_added, scope: :flash)
     else
-      flash[:error] = 'error: quest not added'
+      flash[:error] = (t :quest_not_added, scope: :flash)
     end
 
     room.users.each do |user|

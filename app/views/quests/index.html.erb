@@ -168,7 +168,7 @@
                 </div>
 
                 <div class="col-sm-1">
-                  <p class="list-group-item-heading"> reward: </p>
+                  <p class="list-group-item-heading"> <%=t :reward, scope: :models %>: </p>
                 </div>
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%= quest.reward %> </p>
@@ -176,13 +176,13 @@
 
                 <!--
               <div class="col-md-6 ">
-                 <%= link_to 'Accept', quest_accept_path(quest), method: 'POST' %>
+                 <%= link_to (t :accept, scope: :my_quests), quest_accept_path(quest), method: 'POST' %>
                 <button type="button" class="btn btn-default btn-lg btn-block" > Completed! </button>
               </div> -->
 
               </a>
               <div class="col-sm-2 ruby-button">
-                <%= link_to 'Comlete', quest_accept_path(quest), method: 'POST' %>
+                <%= link_to (t :complete, scope: :my_quests), quest_accept_path(quest), method: 'POST' %>
               </div>
               <br>
             </div>
