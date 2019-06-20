@@ -169,7 +169,7 @@
                 <div class="col-sm-8">
                   <p class="list-group-item-heading"> <%= quest.task %> </p>
                 </div>
-                <%= link_to 'Comlete', quest_accept_path(quest), method: 'POST' %>
+
                 <!--
               <div class="col-md-6 ">
                  <%= link_to 'Accept', quest_accept_path(quest), method: 'POST' %>
@@ -177,6 +177,10 @@
               </div> -->
 
               </a>
+              <div class="col-sm-2 ruby-button">
+                <%= link_to 'Comlete', quest_accept_path(quest), method: 'POST' %>
+              </div>
+              <br>
             </div>
           <% end %>
           <%=will_paginate accepted %>

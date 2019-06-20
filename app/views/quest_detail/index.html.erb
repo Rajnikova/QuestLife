@@ -157,10 +157,9 @@
           <p><%=@quest.description %></p>
           <h4><b>Reward: <%=@quest.reward %></b></h4>
 
-
-          <%if current_user %>
-          <%= link_to 'Add', allquests_path(quest_id: @quest.id), method: 'POST' %>
-          &nbsp;&nbsp;<%end %>
+            <%if current_user %>
+              <%= button_to 'Add', allquests_path(quest_id: @quest.id), method: 'POST' %>
+            <%end %>
 
         </div>
       </div>

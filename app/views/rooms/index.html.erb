@@ -149,7 +149,9 @@
         <div class="well">
           <h1 class="text-center">Rooms</h1>
           <%if current_user %>
-          <h2 class="text-center"><a href="/create_room">New room</a></h2>
+          <a href="/about" class="btn btn-primary js-scroll-trigger">New room</a>
+            <br><br>
+
             <%end %>
           <% @rooms.each  do |room|    %>
             <div class="list-group">
@@ -165,7 +167,6 @@
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%=room.users.count %> </p>
                 </div>
-                <%= link_to 'Show', room_detail_path(room_id: room.id), method: 'GET' %>
 
 
 

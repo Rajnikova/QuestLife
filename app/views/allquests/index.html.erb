@@ -157,38 +157,28 @@
               <a href="/quest_detail?quest_id=<%=quest.id %>" class="list-group-item active">
 
 
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                   <p class="list-group-item-heading"> <%= quest.task %> </p>
                 </div>
+
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> reward: </p>
                 </div>
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%= quest.reward %> </p>
                 </div>
-                <div class="col-sm-6">
-                  <p class="list-group-item-heading"> </p>
-                </div>
-                <div class="col-sm-2">
-                  <p class="list-group-item-heading"> Accepted times:</p>
-                </div>
-                <div class="col-sm-1">
-                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 1).count %> </p>
-                </div>
-                <div class="col-sm-2">
-                  <p class="list-group-item-heading">Completed times:</p>
-                </div>
-                <div class="col-sm-1">
-                  <p class="list-group-item-heading"> <%= quest.users_quests.where(status: 2).count %> </p>
-                </div>
-                <%= link_to 'Detail', quest_detail_path(quest_id: quest.id), method: 'GET' %>
-                <%if current_user %>
-                <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
-                &nbsp;&nbsp;
-                <%= link_to 'Add to room', admin_rooms_path(quest_id: quest.id), method: 'GET' %>
-                  <%end%>
 
               </a>
+              <%if current_user %>
+                <div class="col-sm-1 ruby-button" >
+                  <%= link_to 'Add', allquests_path(quest_id: quest.id), method: 'POST' %>
+                </div>
+                <div class="col-sm-2 ruby-button">
+                  <%= link_to 'Add to room', admin_rooms_path(quest_id: quest.id), method: 'GET' %>
+                </div>
+                <br>
+
+              <%end%>
             </div>
           <% end %>
           <%=will_paginate @quests %>

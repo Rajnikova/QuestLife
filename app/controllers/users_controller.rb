@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     puts 'room'
     puts params[:rooms_id]
     con = User.find(params[:user_id])
-                 .users_rooms.where(room_id: params[:rooms_id]).first
+              .users_rooms.where(room_id: params[:rooms_id]).first
 
     con.status = 0
     if con.save!
