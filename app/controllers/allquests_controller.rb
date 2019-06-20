@@ -1,6 +1,6 @@
 class AllquestsController < ApplicationController
   def index
-    @quests = Quest.where(public: true).order('id').paginate(page: params[:page], per_page: 7)
+    @quests = Quest.where(public: true).order('id DESC').paginate(page: params[:page], per_page: 7)
     @users_quests = UsersQuest.all
 
   end
@@ -17,6 +17,7 @@ class AllquestsController < ApplicationController
     else
       flash[:error] = 'error: quest not added'
     end
+    redirect_to allquests_path
   end
   def show
 

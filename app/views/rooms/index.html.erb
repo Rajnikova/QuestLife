@@ -58,10 +58,22 @@
                 Score: <%=current_user.score %>
               </li>
               <li class="dropdown">
+                <%= link_to 'En', home_path(locale: :en), method: 'PATCH' %>
+              </li>
+              <li class="dropdown">
+                <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
+              </li>
+              <li class="dropdown">
                 <%= link_to 'Logout', login_path(), method: 'DELETE' %>
               </li>
 
             <%else %>
+              <li class="dropdown">
+                <%= link_to 'En', home_path(locale: :en), method: 'PATCH' %>
+              </li>
+              <li class="dropdown">
+                <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
+              </li>
               <li>
                 <h4><a href="/login">Login</a></h4>
               </li>

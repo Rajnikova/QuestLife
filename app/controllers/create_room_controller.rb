@@ -14,6 +14,7 @@ class CreateRoomController < ApplicationController
                            room_id: room.id,
                            status: 0)
     author.save
+    redirect_to create_room_path
   end
 
   def room_params

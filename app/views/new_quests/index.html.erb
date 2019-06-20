@@ -59,6 +59,12 @@
                 Score: <%=current_user.score %>
               </li>
               <li class="dropdown">
+                <%= link_to 'En', home_path(locale: :en), method: 'PATCH' %>
+              </li>
+              <li class="dropdown">
+                <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
+              </li>
+              <li class="dropdown">
                 <%= link_to 'Logout', login_path(), method: 'DELETE' %>
               </li>
 
@@ -134,6 +140,15 @@
       <div class="row">
         <div class="well">
           <h1 class="text-center">Quests send to you!</h1>
+          <% flash.each do |key, value| %>
+
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+          <h3>
+            <%=if !@new_quests.nil?
+               'You have no new quests'
+             end%>
+          </h3>
           <% @new_quests.each  do |quest|    %>
             <div class="list-group">
               <h3>From: <%=if quest.author

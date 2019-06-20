@@ -37,13 +37,13 @@ class QuestsController < ApplicationController
         status.update!(status: 2)
 
         if status.save!
-          flash[:success] = 'Quest completed'
+          flash[:success] = 'Quest completed, CONGRATULATION!!!'
         else
-          flash[:alert] = 'error counld not save quest'
+          flash[:alert] = 'error could not save quest'
           rollback
         end
       end
     end
-    redirect_back(fallback_location: quests_path)
+    redirect_to quests_path
   end
 end
