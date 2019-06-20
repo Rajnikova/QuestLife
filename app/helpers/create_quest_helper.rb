@@ -1,0 +1,2 @@
+module CreateQuestHelper
+end

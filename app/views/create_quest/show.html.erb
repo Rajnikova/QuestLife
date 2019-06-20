@@ -115,7 +115,7 @@
             </a>
           </li>
           <li>
-            <a href="/users">
+            <a href="/create_quest">
               <span class="sidebar-icon"><i class="fa fa-database"></i></span>
               <span class="sidebar-title">Create quests</span>
             </a>
@@ -153,7 +153,7 @@
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
           <div class="form-box">
-            <%= form_for(:quest, url: users_path) do |form| %>
+            <%= form_for(:quest, url: create_quest_path) do |form| %>
 
               <p>
                 <%= form.label :Quest %><br>

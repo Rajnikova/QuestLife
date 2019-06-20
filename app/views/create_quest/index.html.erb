@@ -96,31 +96,31 @@
           </a>
         </li>
         <%if current_user %>
-        <li>
-          <a href="/new_quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">New quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">My accepted Quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/created_quests">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">My created Quests</span>
-          </a>
-        </li>
-        <li>
-          <a href="/users">
-            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-            <span class="sidebar-title">Create quests</span>
-          </a>
-        </li>
-          <%end%>
+          <li>
+            <a href="/new_quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">New quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">My accepted Quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/created_quests">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">My created Quests</span>
+            </a>
+          </li>
+          <li>
+            <a href="/create_quest">
+              <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+              <span class="sidebar-title">Create quests</span>
+            </a>
+          </li>
+        <%end%>
         <li>
           <a href="/allquests">
             <span class="sidebar-icon"><i class="fa fa-database"></i></span>
@@ -153,7 +153,7 @@
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
           <div class="form-box">
-            <%= form_for(:quest, url: users_path) do |form| %>
+            <%= form_for(:quest, url: create_quest_path) do |form| %>
 
               <p>
                 <%= form.label :Quest %><br>
@@ -169,8 +169,8 @@
               </p>
               <br>
 
-              <%= check_box_tag :make_public, 1, false %>
-              <%= form.label :public %>
+              <%= check_box_tag :public, 1, false %>
+              <%= form.label :make_public %>
               <br>
               <p>
                 <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
@@ -188,6 +188,7 @@
               </p>
             <% end %>
           </div>
+          Trouble creating quest? check <a href="/about">help</a>
         </div>
       </div>
     </div>

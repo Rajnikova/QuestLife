@@ -31,11 +31,13 @@ Rails.application.routes.draw do
   get    '/home',           to: 'home#index'
   patch  '/home',           to: 'home#set_locale'
   get    '/about',          to: 'about#index'
+  get    '/create_quest',   to: 'create_quest#index'
 
   resources :quests do
     post :accept
   end
-  resources :users
+
+  resources :create_quest
   resources :index
   resources :login
   resources :sign_up
