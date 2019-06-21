@@ -93,6 +93,7 @@ en:
     add: "Accept"
     delete: "Reject"
   my_quests:
+    title: "My quests"
     accept: "Accept"
     complete: "Complete"
   room_detail:

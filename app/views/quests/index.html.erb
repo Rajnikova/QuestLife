@@ -152,7 +152,7 @@
     <div class="container">
       <div class="row">
         <div class="well">
-          <h1 class="text-center">My quests</h1>
+          <h1 class="text-center"><%=t :title, scope: :my_quests %></h1>
           <% flash.each do |key, value| %>
 
             <div class="alert alert-<%= key %>"><%= value %></div>

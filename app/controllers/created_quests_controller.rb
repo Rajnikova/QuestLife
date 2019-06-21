@@ -11,6 +11,6 @@ class CreatedQuestsController < ApplicationController
     quest.users_quests.delete
     quest.delete
     flash[:success] = (t :delete_s, scope: :flash)
-
+    redirect_to created_quests_path
   end
 end

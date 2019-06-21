@@ -46,7 +46,7 @@ sk:
     trouble: "Problémy pri vytvorení questu? pozri: "
     help: "pomoc"
   create_room:
-    title: "Vytvoriť novú mieetnosť"
+    title: "Vytvoriť novú miestnosť"
   created_quests:
     title: "Mnou vytvorené questy"
     add: "Pridaj"
@@ -62,6 +62,7 @@ sk:
     add: "Prijmi"
     delete: "Odmietni"
   my_quests:
+    title: "Moje questy"
     accept: "Akceptuj"
     complete: "Dokonči"
   room_detail:
