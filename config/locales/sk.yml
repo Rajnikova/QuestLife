@@ -1,5 +1,112 @@
-
 sk:
+  hello: "Hello world"
+  menu:
+    login: "Prihlásiť"
+    logout: "Odhlásiť"
+    signup: "Zaregistrovať"
+    home: "Domov"
+    new_quests: "Nové questy"
+    my_quests: "Moje questy"
+    created_quests: "Vytvorené questy"
+    create_quest: "Vytvoriť nový quest"
+    all_quests: "Všetky questy"
+    rooms: "Miestnosti"
+    about: "O QuestLife"
+  models:
+    users: "Používatelia"
+    user: "Používateľ"
+    user_name: "Meno"
+    password: "Heslo"
+    email: "Email"
+    level: "Level"
+    score: "Skóre"
+    reward: "Odmena"
+    task: "Úloha"
+    public: "Verejný"
+    description: "Popis"
+    room_name: "Názov miestnosti"
+    room_description: "Popis"
   home:
-    description: 'Oživ svoj život posielanim questov svojim priateľom!'
+    description: "Zpestri svoj život posielaním questov svojim priateľom!!!"
+    about: "Viac"
+  admin_rooms:
+    title: "Vyber miestnosť"
+    select: "Vyber"
+    users: "Členovia"
+  all_quests:
+    title: "Všetky questy"
+    add: "Pridaj"
+    add_to_room: "Pridaj do miestnosti"
+  create_quest:
+    title: "Vytvor/Odošli quest"
+    public: "Zverejniť"
+    to_mine: "Pridať medzi svoje"
+    to_other: "Odoslať inému používateľovi"
+    name: "Meno používateľa:"
+    trouble: "Problémy pri vytvorení questu? pozri: "
+    help: "pomoc"
+  create_room:
+    title: "Vytvoriť novú mieetnosť"
+  created_quests:
+    title: "Mnou vytvorené questy"
+    add: "Pridaj"
+    add_to_room: "Pridaj do miestnosti"
+    delete: "Vymaž"
+  login:
+    title: "Prihlásenie:"
+  new_quests:
+    title: "Nové questy pre teba!!"
+    no_quests: "Nemáš žiaden nový quest"
+    unknown: "Neznáme"
+    from: "Od"
+    add: "Pridaj"
+    delete: "Vymaž"
+  my_quests:
+    accept: "Akceptuj"
+    complete: "Dokonči"
+  room_detail:
+    join: "Pridať sa"
+    leave: "Opustiť miestnosť"
+    members: "Členovia"
+    add: "Pridaj"
+  rooms:
+    title: "Miestnosti"
+    users: "Členovia"
+    new: "Nová miestnosť"
+  signup:
+    title: "Registrácia"
+    pass_again: "Zopakuj heslo"
+  members:
+    admins: "Admini"
+    members: "Členovia"
+    make_admin: "Sprav adminom"
+  flash:
+    quest_added: "Quest úspešne pridaný"
+    quest_not_added: "Quest nebol pridany"
+    quest_send: "Quest úspešne odoslaný"
+    quest_not_send: "Quest nebol odoslaný"
+    no_user: "Neexistuje používateľ so zadaným menom"
+    not_created: "Quest nebol vytvorený"
+    created: "Quest bol vytvorený"
+    reward: "Odmena musí byť v rozsahu 0-100"
+    room_s: "Miestnosť úspešne vytvorená"
+    room_e: "Miestnosť nebola vytvorená"
+    room_join: "Boli ste pridaný do miestnosti"
+    room_join_e: "Pridanie zlyhalo"
+    room_left: "Miestnosť opustená"
+    room_left_e: "opustenie zlyhalo"
+    delete_s: "Quest vymazaný"
+    delete_e: "Vymazanie zlyhalo"
+    password_wrong: "Nesprávne heslo"
+    name_wrong: "Používateľ s týmto menom neexistuje"
+    quest_accept: "Quest úspešne akceptovaný"
+    quest_accept_e: "Quest nebol pridaný"
+    quest_completed: "Quest dokončený, GRATULUJEME!!!"
+    quest_completed_e: "Quest sa nepodarilo dokončiť"
+  flash_sign:
+    name_exist: "Meno už bolo použité"
+    pass_difrent: "Heslá sa nezhodujú"
+  flash_users:
+    admin: "Používateľ sa stal adminom"
+    admin_e: "Udelenie zlyhalo"
 

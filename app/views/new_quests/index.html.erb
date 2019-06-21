@@ -65,11 +65,19 @@
                 <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
               </li>
               <li class="dropdown">
-                <%= link_to 'Logout', login_path(), method: 'DELETE' %>
+                <%= link_to (t :logout, scope: :menu), login_path(), method: 'DELETE' %>
               </li>
 
             <%else %>
-              offline
+              <li class="dropdown">
+                <%= link_to 'En', home_path(locale: :en), method: 'PATCH' %>
+              </li>
+              <li class="dropdown">
+                <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
+              </li>
+              <li>
+                <h4><a href="/login"><%=t :login, scope: :menu %></a></h4>
+              </li>
             <%end %>
           </ul>
         </div>
@@ -156,7 +164,7 @@
           </h3>
           <% @new_quests.each  do |quest|    %>
             <div class="list-group">
-              <h3><%=t :from, scope: :new_quests %><%=if quest.author
+              <h3><%=t :from, scope: :new_quests %>: <%=if quest.author
                              quest.author.name
                               else
                                 (t :uknown, scope: :new_quests)

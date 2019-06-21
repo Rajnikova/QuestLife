@@ -36,7 +36,7 @@ en:
     logout: "Log out"
     signup: "Sign up"
     home: "Home"
-    new_quests: "New quest"
+    new_quests: "New quests"
     my_quests: "My quests"
     created_quests: "My created quests"
     create_quest: "Create quest"
@@ -59,9 +59,11 @@ en:
     room_description: "Description"
   home:
     description: "Make your live funnier by sending quests to your friends"
+    about: "about"
   admin_rooms:
     title: "Choose rooms"
     select: "Select"
+    users: "Users"
   all_quests:
     title: "All quests"
     add: "Add"
@@ -101,6 +103,7 @@ en:
   rooms:
     title: "Rooms"
     users: "Users"
+    new: "New room"
   signup:
     title: "Sign up"
     pass_again: "Repeat password"
@@ -115,7 +118,7 @@ en:
     quest_not_send: "Quest not send"
     no_user: "No user with this name"
     not_created: "Quest not created"
-    created: "Quest not created"
+    created: "Quest created"
     reward: "Reward must be between 0-100"
     room_s: "Room successfully created"
     room_e: "Room not created"

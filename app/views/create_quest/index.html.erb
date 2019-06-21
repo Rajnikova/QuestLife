@@ -65,7 +65,7 @@
                 <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
               </li>
               <li class="dropdown">
-                <%= link_to 'Logout', login_path(), method: 'DELETE' %>
+                <%= link_to (t :logout, scope: :menu), login_path(), method: 'DELETE' %>
               </li>
 
             <%else %>
@@ -76,7 +76,7 @@
                 <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
               </li>
               <li>
-                <h4><a href="/login">Login</a></h4>
+                <h4><a href="/login"><%=t :login, scope: :menu %></a></h4>
               </li>
             <%end %>
           </ul>
@@ -173,21 +173,24 @@
                 <%= form.text_area :description %>
               </p>
               <br>
+              <div align="left">
+                <%= check_box_tag :public, 1, false %>
+                <%= form.label (t :public, scope: :create_quest) %>
+                <br>
+                <p>
+                  <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
+                  <%= form.label (t :to_mine, scope: :create_quest) %>
+                </p>
 
-              <%= check_box_tag (t :public, scope: :create_quest), 1, false %>
-              <%= form.label :make_public %>
-              <br>
+                <%= check_box_tag :add_quest_to_someone, 1, false %>
+                <%= form.label (t :to_other, scope: :create_quest) %>
+                <br>
+              </div>
               <p>
-                <%= check_box_tag (t :to_mine, scope: :create_quest), 1, false %>
-                <%= form.label :Add_to_mine %>
-                <br>
-
-                <%= check_box_tag (t :to_other, scope: :create_quest), 1, false %>
-                <%= form.label :Send_to_other_user %>
-                <br>
                 <%= form.label (t :name, scope: :create_quest) %>
                 <%= form.text_field :other_user_name %>
               </p>
+
               <p>
                 <%= form.button %>
               </p>

@@ -8,10 +8,10 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <% provide(:title, "Log in") %>
-    <h1><%=t :title, scope: :login %>></h1>
+    <h1><%=t :title, scope: :login %></h1>
     <%= form_for(:login, url: login_path) do |f| %>
 
-      <%= f.label (t :name, scope: :models) %>
+      <%= f.label (t :user_name, scope: :models) %>
       <%= f.text_field :name, class: 'form-control' %>
       <br>
       <%= f.label (t :password, scope: :models) %>
@@ -21,7 +21,7 @@
     <% end %>
 
     <div id="formFooter">
-      <a class="underlineHover" href="sign_up"><%=t :signup, scope: :menu %>></a>
+      <a class="underlineHover" href="sign_up"><%=t :signup, scope: :menu %></a>
     </div>
   </div>
 

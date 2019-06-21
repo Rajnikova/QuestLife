@@ -63,7 +63,7 @@
                 <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
               </li>
               <li class="dropdown">
-                <%= link_to 'Logout', login_path(), method: 'DELETE' %>
+                <%= link_to (t :logout, scope: :menu), login_path(), method: 'DELETE' %>
               </li>
 
             <%else %>
@@ -74,7 +74,7 @@
                 <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
               </li>
               <li>
-                <h4><a href="/login">Login</a></h4>
+                <h4><a href="/login"><%=t :login, scope: :menu %></a></h4>
               </li>
             <%end %>
 
@@ -165,7 +165,7 @@
                   <p class="list-group-item-heading"> <%= room.name %> </p>
                 </div>
                 <div class="col-sm-1">
-                  <p class="list-group-item-heading"><%=t :users, scope: :models %>></p>
+                  <p class="list-group-item-heading"><%=t :users, scope: :admin_rooms %>:</p>
                 </div>
                 <div class="col-sm-1">
                   <p class="list-group-item-heading"> <%=room.users.count %> </p>
