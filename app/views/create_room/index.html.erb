@@ -50,12 +50,15 @@
             </li> -->
             <%if current_user %>
               <li>
-                <%= current_user.name%>
+                <div class="name">
+                  <%= current_user.name%>
+                </div>
               </li>
-              <li></li>
-              <li class="dropdown">
-                Lvl: <%= current_user.level %>
-                Score: <%=current_user.score %>
+              <li>
+                <div class="lvl">
+                  <%=t :lvl, scope: :menu %>: <%= current_user.level %>
+                  <%=t :score, scope: :menu %>: <%=current_user.score %>
+                </div>
               </li>
               <li class="dropdown">
                 <%= link_to 'En', home_path(locale: :en), method: 'PATCH' %>
@@ -167,7 +170,7 @@
                 <%= form.text_area :description %>
               </p>
               <p>
-                <%= form.button %>
+                <%= form.button (t :create, scope: :create_room), class: "btn-info btn-lg" %>
               </p>
             <% end %>
           </div>

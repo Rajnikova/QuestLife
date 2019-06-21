@@ -12,6 +12,8 @@ sk:
     all_quests: "Všetky questy"
     rooms: "Miestnosti"
     about: "O QuestLife"
+    lvl: "Lvl"
+    score: "Skóre"
   models:
     users: "Používatelia"
     user: "Používateľ"
@@ -43,10 +45,12 @@ sk:
     to_mine: "Pridať medzi svoje"
     to_other: "Odoslať inému používateľovi"
     name: "Meno používateľa:"
+    create: "Vytvor quest"
     trouble: "Problémy pri vytvorení questu? pozri: "
     help: "pomoc"
   create_room:
     title: "Vytvoriť novú miestnosť"
+    create: "Vytvor miestnosť"
   created_quests:
     title: "Mnou vytvorené questy"
     add: "Pridaj"

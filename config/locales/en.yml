@@ -43,6 +43,8 @@ en:
     all_quests: "All quests"
     rooms: "rooms"
     about: "about"
+    lvl: "Lvl"
+    score: "Score"
   models:
     users: "Users"
     user: "User"
@@ -74,10 +76,13 @@ en:
     to_mine: "Add quest to mine"
     to_other: "Send to other user"
     name: "user name:"
+    create: "Create quest"
     trouble: "Trouble creating quest? check "
     help: "help"
+
   create_room:
     title: "Create new room"
+    create: "Create room"
   created_quests:
     title: "My created quests"
     add: "Add"
