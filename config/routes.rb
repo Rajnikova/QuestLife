@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get    '/admin_rooms',    to: 'admin_rooms#index'
   put    '/admin_rooms',    to: 'admin_rooms#add_to_room'
   get    '/home',           to: 'home#index'
-  patch  '/home',           to: 'home#set_locale'
+  patch  '/home',           to: 'home#change_locale'
   get    '/about',          to: 'about#index'
   get    '/create_quest',   to: 'create_quest#index'
   get    '/users',          to: 'users#index'
@@ -37,8 +37,9 @@ Rails.application.routes.draw do
   get    '/index',          to: 'index#index'
 
   resources :quests do
-    post :accept
-  end
+      post :accept
+    end
+
   resources :users
   resources :create_quest
   resources :index
@@ -54,12 +55,10 @@ Rails.application.routes.draw do
   resources :allquests do
     post :accept
   end
-  Rails.application.routes.draw do
-    root 'home#index'
-  end
-  scope "(:locale)", :locale => /en|sk/ do
-    root :to => 'page#index'
-    get "page/index"
-  end
+  root 'home#index'
+
+
+
+
 end
 

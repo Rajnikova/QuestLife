@@ -110,3 +110,56 @@ sk:
     admin: "Používateľ sa stal adminom"
     admin_e: "Udelenie zlyhalo"
 
+  about:
+    title: "O QuestLife"
+    description: "QuestLife je aplikácia na posielanie questov priatelom,
+                  dostavaním od iných alebo len na robenie vlastného listu úloh.
+                  Buď inšpirovaný či motivovaný ostatnými používateľmi a spestri tak svoj
+                  život zadarmo!!"
+    quest:
+      question: "Čo je to quest?"
+      p1: "Pojem quest môžeš poznať z hier. Je to úloha s odmenou.
+          Zvyčajne je jednoznačne a jednoducho formulovaná pár slovami.
+          Splnením úlohy rastie tvoje bodové skóre a následne level.
+          Na dosiahnutie levelu potrebuješ skóre 1000."
+    room:
+      question: "Čo je to miestnosť?"
+      p1: "Miestnosť je miesto vytvorené adminom miestnosti.
+          Keď niekto pridá quest do miestnosti, všetci členovia dostanú upozornenie o
+          tomto queste. Miestnosti bývajú zamerané na nejakú oblasť ako je šport, seriál
+           či kapela. Používatelia tak vstupom do miestnosti dostávajú questy z danej
+          oblasti záujmu.
+"
+    sending:
+      question: "Vytváranie/posielanie questov"
+      p1: 'Na posielanie questov musíš najskôr quest vytvoriť.
+          Choď do “Vytvoriť nový quest” a vyplň nasledujúce informácie:'
+      fill1: "1. Úloha"
+      des1: "meno questu, malo by byť čo najkratšie"
+      fill2: "2. Odmena"
+      des2: "veľkosť skóre, ktoré bude nadobudnuté po dokončení. Hodnota je obmedzená na 0-100"
+      fill3: "3. Popis"
+      des3: "-nepovinný. Tu môžeš pridať dlhší popis questu"
+      choices: "Možnosti"
+      c1: "Zverejniť"
+      c1_des: 'Zverejnený quest sa objaví medzi “Všetky questy”.
+              Nezverejnený quest nie je úplne neprístupný, preto prosím, neukladaj
+              sem žiadne osobné informácie.
+'
+      c2: "Pridať medzi svoje"
+      c2_des: "Vybraním tejto možnosti sa quest pridá medzi tvoje akceptované questy."
+      c3: "Odoslať inému používateľovi  "
+      c3_des: "Vybraním tejto možnosti sa quest odošle používateľovi, ktorého meno je v okne vyplnené v
+              nasledujúcom okne. Pozor mená sú citlivé na veľké a malé písmená."
+      p2: "o odoslaní questu prijímateľ dostane upozornenie a môže ho pridať alebo zamietnuť."
+    accept:
+      question: "Akceptovanie a dokončenie questu"
+      p1: 'Akceptovanie a dokončenie questu
+           Akceptovať quest môžeš medzi “Všetky questy”, v miestnosti alebo môžeš
+           vytvoriť vlastný a pridať si ho medzi svoje. Taktiež môžeš akceptovať quest
+           od iného používateľa, ktorý ti ho zaslal. nasledne quest uvidíš medzi “Moje questy”
+           Po dokončení zvol možnosť “dokonči” a získaš svoju odmenu.
+'
+
+
+

@@ -152,53 +152,44 @@
       <div class="row">
         <div class="well">
           <div class="headline">
-            <h1>About QuestLife</h1>
+            <h1><%=t :title, scope: :about %></h1>
           </div>
           <div class="row">
             <div class="list-group">
               <div class="about">
                 <p>
-                  QuestLife is application for sending quests to friends,
-                  accepting from others or just making a to-do list for yourself. Get inspirated or motivated
-                  by other users, make your life more exciting for free!!
+                 <%=t :description, scope: :about %>
                 </p>
-                <h2>What is quest?</h2>
+                <h2><%=t :question, scope: [:about, :quest] %></h2>
                 <p>
-                  From gaming world quest is a task with reward. Usually it is simple and
-                  clearly defined. By completing quests your score will rise and from that your level will rise too.
-                  To gain level you must have score of 1000
+                  <%=t :p1, scope: [:about, :quest] %>
                 </p>
-                <h2>What is room?</h2>
+                <h2><%=t :question, scope: [:about, :room] %></h2>
                 <p>
-                  Room is a place created by admins. When they add quests to room, all users in that room will get notification.
-                  Rooms can be specified in som field like sport, television series, music band etc.
-                  Users come to rooms they are interested in, to get more quests from choosen field.
+                  <%=t :p1, scope: [:about, :room] %>
                 </p>
-                <h2>Creating/sending quest</h2>
+                <h2><%=t :question, scope: [:about, :sending] %></h2>
                 <p>
-                  For sending quest you must creating. Go to "Create quest" and fill information:
+                  <%=t :p1, scope: [:about, :sending] %>
                   <br>
                 </p>
                 <p>
-                  <strong>1.quest:</strong> name of quest, this should be as short as possible<br>
-                  <strong>2.reward:</strong>  it is amount of score, which is gained by completing quest<br>
-                  <strong>3.Description:</strong> -voluntary. Here you can add longer description of your quest<br>
+                  <strong><%=t :fill1, scope: [:about, :sending] %>:</strong> <%=t :des1, scope: [:about, :sending] %><br>
+                  <strong><%=t :fill2, scope: [:about, :sending] %>:</strong>  <%=t :des2, scope: [:about, :sending] %><br>
+                  <strong><%=t :fill3, scope: [:about, :sending] %>:</strong> <%=t :des3, scope: [:about, :sending] %><br>
                 </p>
                 <p>
-                  <h3>Choices:</h3>
-                  <strong>1. Make public: </strong>By making quest public, it will appear in "All quests" and other users can add it.
-                  Please take a note that not public does not mean exactly private, so do not save here any personal info. <br>
-                  <strong>2. Add to mine: </strong>By choosing this option, quest will by added to your accepted quest<br>
-                  <strong>3.Send to other user by name: </strong>With this you can send this quest to other user. Just add his/her name to empty space.<br>
+                  <h3><%=t :choises, scope: [:about, :sending] %></h3>
+                  <strong><%=t :c1, scope: [:about, :sending] %> :</strong> <%=t :c1_des, scope: [:about, :sending] %> <br>
+                  <strong><%=t :c2, scope: [:about, :sending] %>:</strong> <%=t :c2_des, scope: [:about, :sending] %><br>
+                  <strong><%=t :c3, scope: [:about, :sending] %>:</strong> <%=t :c3_des, scope: [:about, :sending] %><br>
                 </p>
                 <p>
-                  After sending quest user will get a notification and can accept it.
+                  <%=t :p2, scope: [:about, :sending] %>
                 </p>
-                <h2>Accepting and completing quest</h2>
+                <h2><%=t :question, scope: [:about, :accept] %></h2>
                 <p>
-                  At first you must accept quest. You can create your own and add it to yours or accept existing quest in all quest.
-                  Also you can accept quest, which was send to you by other user or was send from room. After accepting you can see the quest in "My accepted quests"<br>
-                  In "My accepted quest" you have an option "Complete" under the quest. By clicking this you quest is now completed, and reward for it will be added to you score.
+                  <%=t :p1, scope: [:about, :accept] %>
 
                 </p>
               </div>

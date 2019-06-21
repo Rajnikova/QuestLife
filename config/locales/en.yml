@@ -141,3 +141,43 @@ en:
     admin: "User set as admin"
     admin_e: "Process failed"
 
+  about:
+    title: "About QuestLife"
+    description: "QuestLife is application for sending quests to friends,
+                   accepting from others or just making a to-do list for yourself. Get inspired or motivated
+                   by other users, make your life more exciting for free!!"
+    quest:
+      question: "What is quest?"
+      p1: "From gaming world quest is a task with reward. Usually it is simple and
+            clearly defined. By completing quests your score will rise and from that your level will rise too.
+            To gain level you must have score of 1000"
+    room:
+      question: "What is room?"
+      p1: "Room is a place created by admins. When they add quests to room, all users in that room will get notification.
+            Rooms can be specified in some field like sport, television series, music band etc.
+            Users come to rooms they are interested in, to get more quests from chosen field."
+    sending:
+      question: "Creating/sending quest"
+      p1: 'For sending quest you must creating. Go to "Create quest" and fill information:'
+      fill1: "1. Quest"
+      des1: "name of quest, this should be as short as possible"
+      fill2: "2. Reward"
+      des2: "it is amount of score, which is gained by completing ques"
+      fill3: "3. Description"
+      des3: "-voluntary. Here you can add longer description of your quest"
+      choices: "choices"
+      c1: "Make public"
+      c1_des: 'By making quest public, it will appear in "All quests" and other users can add it.
+                Please take a note that not public does not mean exactly private, so do not save here any personal info.'
+      c2: "Add to mine"
+      c2_des: "By choosing this option, quest will by added to your accepted quest"
+      c3: "Send to other user by name"
+      c3_des: "With this you can send this quest to other user. Just add his/her name to empty space. Names are case sensitive"
+      p2: "After sending quest user will get a notification and can accept it."
+    accept:
+      question: "Accepting and completing quest"
+      p1: 'At first you must accept quest. You can create your own and add it to yours or accept existing quest in all quest.
+           Also you can accept quest, which was send to you by other user or was send from room. After accepting you can see the quest in "My accepted quests".
+            In "My accepted quest" you have an option "Complete" under the quest. By clicking this you quest is now completed, and reward for it will be added to you score.'
+
+

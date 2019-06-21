@@ -11,10 +11,11 @@ class HomeController < ApplicationController
     @top_user = TopUser.last
 
 
+
   end
-  def set_locale
+  def change_locale
     I18n.locale = params[:locale] || I18n.default_locale
-    puts 'change t'
+    puts 'change language'
     puts I18n.locale
     redirect_to home_path
   end
