@@ -14,6 +14,7 @@ class HomeController < ApplicationController
 
   end
   def change_locale
+
     I18n.locale = params[:locale] || I18n.default_locale
     puts 'change language'
     puts I18n.locale

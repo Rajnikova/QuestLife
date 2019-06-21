@@ -76,7 +76,7 @@
                 <%= link_to 'Sk', home_path(locale: :sk), method: 'PATCH' %>
               </li>
               <li>
-                <h4><a href="/login"><%=t :login, scope: :menu %></a></h4>
+                <h4><a href="/<%=locale%>/login"><%=t :login, scope: :menu %></a></h4>
               </li>
             <%end %>
           </ul>
@@ -90,14 +90,14 @@
     <aside id="sidebar">
       <ul id="sidemenu" class="sidebar-nav">
         <li>
-          <a href="/home">
+          <a href="/<%=locale%>/home">
             <span class="sidebar-icon"><i class="fa fa-home"></i></span>
             <span class="sidebar-title"><%=t :home, scope: :menu %></span>
           </a>
         </li>
         <%if current_user %>
           <li>
-            <a href="/new_quests">
+            <a href="/<%=locale%>/new_quests">
               <span class="sidebar-icon new-quest"><i class="fa fa-exclamation-circle"></i></span>
               <%if @has_new_quest > 0 %>
                 <span class="sidebar-title new-quest"><%=t :new_quests, scope: :menu %></span>
@@ -108,38 +108,38 @@
             </a>
           </li>
           <li>
-            <a href="/quests">
+            <a href="/<%=locale%>/quests">
               <span class="sidebar-icon"><i class="fa fa-question-circle"></i></span>
               <span class="sidebar-title"><%=t :my_quests, scope: :menu %></span>
             </a>
           </li>
           <li>
-            <a href="/created_quests">
+            <a href="/<%=locale%>/created_quests">
               <span class="sidebar-icon"><i class="fa fa-database"></i></span>
               <span class="sidebar-title"><%=t :created_quests, scope: :menu %></span>
             </a>
           </li>
           <li>
-            <a href="/create_quest">
+            <a href="/<%=locale%>/create_quest">
               <span class="sidebar-icon"><i class="fa fa-certificate"></i></span>
               <span class="sidebar-title"><%=t :create_quest, scope: :menu %></span>
             </a>
           </li>
         <%end%>
         <li>
-          <a href="/allquests">
+          <a href="/<%=locale%>/allquests">
             <span class="sidebar-icon"><i class="fa fa-clone"></i></span>
             <span class="sidebar-title"><%=t :all_quests, scope: :menu %></span>
           </a>
         </li>
         <li>
-          <a href="/rooms">
+          <a href="/<%=locale%>/rooms">
             <span class="sidebar-icon"><i class="fa fa-user"></i></span>
             <span class="sidebar-title"><%=t :rooms, scope: :menu %></span>
           </a>
         </li>
         <li>
-          <a href="/about">
+          <a href="/<%=locale%>/about">
             <span class="sidebar-icon"><i class="fa fa-info-circle"></i></span>
             <span class="sidebar-title"><%=t :about, scope: :menu %></span>
           </a>

@@ -17,6 +17,6 @@ module Untitled1
     # the framework and any gems in your application.
 
     config.i18n.available_locales = [:en, :sk]
-    config.i18n.default_locale = :sk
+    config.i18n.default_locale = :en
   end
 end

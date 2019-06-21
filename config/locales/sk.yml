@@ -59,8 +59,8 @@ sk:
     no_quests: "Nemáš žiaden nový quest"
     unknown: "Neznáme"
     from: "Od"
-    add: "Pridaj"
-    delete: "Vymaž"
+    add: "Prijmi"
+    delete: "Odmietni"
   my_quests:
     accept: "Akceptuj"
     complete: "Dokonči"
@@ -103,6 +103,7 @@ sk:
     quest_accept_e: "Quest nebol pridaný"
     quest_completed: "Quest dokončený, GRATULUJEME!!!"
     quest_completed_e: "Quest sa nepodarilo dokončiť"
+    quest_deleted: "Quest bol odmietnuty"
   flash_sign:
     name_exist: "Meno už bolo použité"
     pass_difrent: "Heslá sa nezhodujú"

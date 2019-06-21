@@ -13,6 +13,7 @@ class NewQuestsController < ApplicationController
     UsersQuest.where(status: '10', user_id: current_user,
                      quest_id: params[:quest_id]).delete_all
     redirect_back(fallback_location: new_quest_path)
+    flash[:alert] = (t :quest_delete, scope: :flash)
   end
   def new
     #accepting new quest

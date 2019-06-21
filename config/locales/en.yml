@@ -90,8 +90,8 @@ en:
     no_quests: "You have no new quests"
     unknown: "Unknown"
     from: "From"
-    add: "Add"
-    delete: "Delete"
+    add: "Accept"
+    delete: "Reject"
   my_quests:
     accept: "Accept"
     complete: "Complete"
@@ -134,6 +134,7 @@ en:
     quest_accept_e: "Quest not added"
     quest_completed: "Quest completed, CONGRATULATION!!!"
     quest_completed_e: "Could not save quest"
+    quest_delete: "Quest rejected"
   flash_sign:
     name_exist: "Name already in use"
     pass_difrent: "Different passwords"
