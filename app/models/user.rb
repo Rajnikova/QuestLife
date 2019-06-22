@@ -36,4 +36,21 @@ class User < ApplicationRecord
   def admin_in
     self.rooms.where(users_rooms: { status: 0 })
   end
+
+  def created_quests
+    self.quests.where(users_quests: { status: 0 })
+  end
+
+  def accepted_quests
+    self.quests.where(users_quests: { status: 1 })
+  end
+
+  def new_quests
+    self.quests.where(users_quests: { status: 10 })
+  end
+  def reject_quest quest_id
+    UsersQuest.where(status: '10', user_id: self.id, quest_id: quest_id)
+              .delete_all
+
+  end
 end

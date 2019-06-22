@@ -14,7 +14,23 @@ class Room < ApplicationRecord
       false
     end
   end
-
+  def create_new author
+    correct = true
+    ActiveRecord::Base.transaction do
+      unless self.save!
+        correct = false
+        raise ActiveRecord::Rollback, "room save failed"
+      end
+      con = UsersRoom.new(user_id: author.id,
+                          room_id: self.id,
+                          status: 0)
+      unless con.save!
+        correct = false
+        raise ActiveRecord::Rollback, "autor not set"
+      end
+    end
+    correct
+  end
   def has_quest? (quest_id)
     has = self.quests.where(quests: { id: quest_id }).count
     has.positive?

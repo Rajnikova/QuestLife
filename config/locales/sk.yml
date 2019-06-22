@@ -113,7 +113,7 @@ sk:
     quest_accept_e: "Quest nebol pridaný"
     quest_completed: "Quest dokončený, GRATULUJEME!!!"
     quest_completed_e: "Quest sa nepodarilo dokončiť"
-    quest_deleted: "Quest bol odmietnuty"
+    quest_deleted: "Quest bol odmietnutý"
     quest_is_added: "Quest už je v miestnosti"
   flash_sign:
     name_exist: "Meno už bolo použité"
@@ -156,8 +156,7 @@ sk:
       c1: "Zverejniť"
       c1_des: 'Zverejnený quest sa objaví medzi “Všetky questy”.
               Nezverejnený quest nie je úplne neprístupný, preto prosím, neukladaj
-              sem žiadne osobné informácie.
-'
+              sem žiadne osobné informácie.'
       c2: "Pridať medzi svoje"
       c2_des: "Vybraním tejto možnosti sa quest pridá medzi tvoje akceptované questy."
       c3: "Odoslať inému používateľovi  "
@@ -170,8 +169,9 @@ sk:
            Akceptovať quest môžeš medzi “Všetky questy”, v miestnosti alebo môžeš
            vytvoriť vlastný a pridať si ho medzi svoje. Taktiež môžeš akceptovať quest
            od iného používateľa, ktorý ti ho zaslal. nasledne quest uvidíš medzi “Moje questy”
-           Po dokončení zvol možnosť “dokonči” a získaš svoju odmenu.
-'
-
+           Po dokončení zvol možnosť “dokonči” a získaš svoju odmenu.'
+    contact:
+      title: "Kontakt"
+      p1: 'V prípade potreby kontaktujte autora na email mayoko@centrum.sk'
 
 

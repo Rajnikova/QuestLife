@@ -2,31 +2,25 @@ class NewQuestsController < ApplicationController
   def index
     if current_user
       @has_new_quest = current_user.has_new_quest?
+      @new_quests = current_user.new_quests
+                                .paginate(page: params[:page], per_page: 7)
     end
-    @new_quests = Quest.joins(:users_quests)
-                      .where(users_quests: { status: '10',
-                                             user_id: current_user })
-                      .paginate(page: params[:page], per_page: 7)
   end
 
   def delete
-    UsersQuest.where(status: '10', user_id: current_user,
-                     quest_id: params[:quest_id]).delete_all
+    current_user.reject_quest params[:quest_id]
+    flash[:alert] = (t :quest_deleted, scope: :flash)
+
     redirect_back(fallback_location: new_quest_path)
-    flash[:alert] = (t :quest_delete, scope: :flash)
   end
   def new
     #accepting new quest
     puts params[:quest_id]
     quest = Quest.find(params[:quest_id])
-    @users_quest = UsersQuest.new(user_id: current_user.id,
-                                  quest_id: quest.id, status: 1)
-    puts params[:quest_id]
-    if @users_quest.save!
-      flash[:success] = (t :quest_accept, scope: :flash)
-      puts 'pridalo'
+    if quest.accept current_user
+      flash[:success] = (t :quest_added, scope: :flash)
     else
-      flash[:error] = (t :quest_accept_e, scope: :flash)
+      flash[:error] = (t :quest_not_added, scope: :flash)
     end
     @users_quest = UsersQuest.where(user_id: current_user,
                                     quest_id: quest.id,

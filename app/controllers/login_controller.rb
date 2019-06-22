@@ -28,13 +28,6 @@ class LoginController < ApplicationController
       flash[:error] = (t :name_wrong, scope: :flash)
       redirect_to login_path
     end
-
-    #if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
-    #else
-      # Create an error message.
-    #  render 'new'
-    #end
   end
   def logout
     log_out

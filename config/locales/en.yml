@@ -145,7 +145,7 @@ en:
     quest_accept_e: "Quest not added"
     quest_completed: "Quest completed, CONGRATULATION!!!"
     quest_completed_e: "Could not save quest"
-    quest_delete: "Quest rejected"
+    quest_deleted: "Quest rejected"
     quest_is_added: "Quest is already in room"
   flash_sign:
     name_exist: "Name already in use"
@@ -192,5 +192,7 @@ en:
       p1: 'At first you must accept quest. You can create your own and add it to yours or accept existing quest in all quest.
            Also you can accept quest, which was send to you by other user or was send from room. After accepting you can see the quest in "My accepted quests".
             In "My accepted quest" you have an option "Complete" under the quest. By clicking this you quest is now completed, and reward for it will be added to you score.'
-
+    contact:
+      title: "Contact"
+      p1: 'In case of need contact me on mail: mayoko@centrum.sk'
 

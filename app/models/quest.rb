@@ -10,26 +10,31 @@ class Quest < ApplicationRecord
     usersQuest.save!
   end
 
-  def status
+  def delete_quest
+    self.users_quests.delete_all
+    self.rooms_quests.delete_all
+    self.delete
   end
 
-  def add
-  end
+
   def author
-    self.users.where(users_quests: {status: 0}).first
+    self.users.where(users_quests: { status: 0 }).first
   end
+
   def set_author (user)
     users_quest = UsersQuest.new(user_id: user.id,
-                                  quest_id: self.id,
-                                  status: 0)
+                                 quest_id: self.id,
+                                 status: 0)
     users_quest.save!
   end
+
   def add_to_user user
     users_quest = UsersQuest.new(user_id: user.id,
                                  quest_id: self.id,
                                  status: 1)
     users_quest.save!
   end
+
   def send_to_user user
     users_quest = UsersQuest.new(user_id: user.id,
                                  quest_id: self.id,
@@ -38,7 +43,6 @@ class Quest < ApplicationRecord
   end
 
   def correct_reward?
-
     if !self.reward || self.reward < 0 || self.reward > 100
       false
     else
