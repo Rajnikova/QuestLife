@@ -109,6 +109,7 @@ sk:
     quest_completed: "Quest dokončený, GRATULUJEME!!!"
     quest_completed_e: "Quest sa nepodarilo dokončiť"
     quest_deleted: "Quest bol odmietnuty"
+    quest_is_added: "Quest už je v miestnosti"
   flash_sign:
     name_exist: "Meno už bolo použité"
     pass_difrent: "Heslá sa nezhodujú"

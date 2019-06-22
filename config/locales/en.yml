@@ -141,6 +141,7 @@ en:
     quest_completed: "Quest completed, CONGRATULATION!!!"
     quest_completed_e: "Could not save quest"
     quest_delete: "Quest rejected"
+    quest_is_added: "Quest is already in room"
   flash_sign:
     name_exist: "Name already in use"
     pass_difrent: "Different passwords"
