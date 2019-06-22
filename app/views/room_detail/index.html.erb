@@ -182,7 +182,7 @@
             <div class="list-group">
               <a href="/<%=locale%>/quest_detail?quest_id=<%=quest.id %>" class="list-group-item active">
 
-                <div class="col-sm-9">
+                <div class="col-sm-10">
                   <p class="list-group-item-heading"> <%= quest.task %> </p>
                 </div>
 
@@ -197,6 +197,7 @@
               <div class="col-sm-1 ruby-button">
                 <%= link_to (t :add, scope: :room_detail), allquests_path(quest_id: quest.id), method: 'POST' %>
               </div>
+              <br>
             </div>
           <% end %>
           <%=will_paginate @room_quests %>
