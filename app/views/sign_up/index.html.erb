@@ -28,7 +28,9 @@
       <%= f.label (t :pass_again, scope: :signup) %>
       <%= f.password_field :password2, class: 'form-control' %>
       <br>
-
+      <div class="sign-warning">
+        <%=t :warning, scope: :signup %>
+      </div>
 
       <%= f.submit (t :signup, scope: :menu), class: "btn btn-primary" %>
     <% end %>

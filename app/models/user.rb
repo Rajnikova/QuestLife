@@ -31,6 +31,9 @@ class User < ApplicationRecord
   def has_new_quest?
     #self.users_quests.where(status: 10).count
     self.quests.where(users_quests: {status: 10}).count
+  end
 
+  def admin_in
+    self.rooms.where(users_rooms: { status: 0 })
   end
 end

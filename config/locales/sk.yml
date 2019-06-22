@@ -1,5 +1,8 @@
 sk:
   hello: "Hello world"
+  will_paginate:
+    next_label: "->"
+    previous_label: "<-"
   menu:
     login: "Prihlásiť"
     logout: "Odhlásiť"
@@ -29,7 +32,7 @@ sk:
     room_name: "Názov miestnosti"
     room_description: "Popis"
   home:
-    description: "Zpestri svoj život posielaním questov svojim priateľom!!!"
+    description: "Spestri svoj život posielaním questov svojim priateľom!!!"
     about: "Viac"
   admin_rooms:
     title: "Vyber miestnosť"
@@ -81,6 +84,8 @@ sk:
   signup:
     title: "Registrácia"
     pass_again: "Zopakuj heslo"
+    warning: "Táto stránka vznikla ako školský projekt.
+              Prosím neukladajte sem osobné údaje ani nepoužívajte heslá z iných stránok"
   members:
     admins: "Admini"
     members: "Členovia"

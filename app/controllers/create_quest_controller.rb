@@ -22,9 +22,9 @@ class CreateQuestController < ApplicationController
       @quest.public = false
       if params[:public].eql?('1')
         @quest.public = true
-        puts 'is public'
       end
-      if !@quest.reward || @quest.reward<0 || @quest.reward>100
+
+      unless @quest.correct_reward?
         flash[:error] = (t :reward, scope: :flash)
         raise ActiveRecord::Rollback, "wrong reward"
       end
@@ -33,33 +33,25 @@ class CreateQuestController < ApplicationController
         flash[:error] = (t :quest_not_created, scope: :flash)
         raise ActiveRecord::Rollback, "Quest not created"
       end
-      @users_quest = UsersQuest.new(user_id: current_user.id,
-                                    quest_id: @quest.id,
-                                    status: 0)
-      @users_quest.save
+      unless @quest.set_author current_user
+        flash[:error] = (t :quest_not_added, scope: :flash)
+        raise ActiveRecord::Rollback, "quest not added"
+      end
+
       # adding quest to myself
       if params[:add_quest_to_mine_quests].eql?('1')
-        @users_quest = UsersQuest.new(user_id: current_user.id,
-                                      quest_id: @quest.id,
-                                      status: 1)
-
-        unless @users_quest.save!
+        unless @quest.add_to_user current_user
           flash[:error] = (t :quest_not_added, scope: :flash)
           raise ActiveRecord::Rollback, "quest not added"
         end
-
       end
       #sending quest to other user
       if params[:add_quest_to_someone].eql?('1')
         user = User.find_by(name: params[:quest][:other_user_name])
         if user
-          @users_quest = UsersQuest.new(user_id: user.id,
-                                        quest_id: @quest.id,
-                                        status: 10)
-
-          unless @users_quest.save!
-            flash[:error] = (t :quest_not_send, scope: :flash)
-            raise ActiveRecord::Rollback, "quest not send"
+          unless @quest.send_to_user user
+            flash[:error] = (t :quest_not_added, scope: :flash)
+            raise ActiveRecord::Rollback, "quest not added"
           end
         else
           flash[:error] = (t :no_user, scope: :flash)
@@ -85,8 +77,9 @@ class CreateQuestController < ApplicationController
 
   private
   def users_quests_params
-    #toto akosi nefunguje T-T, paramtre nejdu z vonka tak to asi ani netreba?
-    params.require(:usersQuest).permit(user_id: current_user.id, quest_id: @quest.id, status: 1)
+    params.require(:usersQuest).permit(user_id: current_user.id,
+                                       quest_id: @quest.id,
+                                       status: 1)
   end
 
 end

@@ -3,7 +3,7 @@ class AdminRoomsController < ApplicationController
     if current_user
       @has_new_quest = current_user.has_new_quest?
     end
-    @rooms = current_user.rooms.where(users_rooms: { status: 0 })
+    @rooms = current_user.admin_in
                          .paginate(page: params[:page], per_page: 7)
     @quest_id = params[:quest_id]
   end
@@ -12,27 +12,16 @@ class AdminRoomsController < ApplicationController
       quest_id = params[:quest_id]
       room = Room.find_by_id(params[:room_id])
 
-      exist = room.quests.where(quests: {id: quest_id}).count
-      if exist > 0
+      if room.has_quest? quest_id
         flash[:error] = (t :quest_is_added, scope: :flash)
-        raise ActiveRecord::Rollback, "quest already exist"
+        raise ActiveRecord::Rollback, 'quest already exist'
       end
 
-      add = RoomsQuest.new(room_id: room.id,
-                           quest_id: quest_id)
-
-      if add.save!
+      if room.add quest_id
         flash[:success] = (t :quest_added, scope: :flash)
       else
         flash[:error] = (t :quest_not_added, scope: :flash)
-        raise ActiveRecord::Rollback, "quest not added"
-      end
-
-      room.users.each do |user|
-        notification = UsersQuest.new(user_id: user.id,
-                                      quest_id: quest_id,
-                                      status: 10)
-        notification.save
+        raise ActiveRecord::Rollback, 'quest not added'
       end
     end
     redirect_back(fallback_location: allquests_path)

@@ -31,6 +31,9 @@
 
 en:
   hello: "Hello world"
+  will_paginate:
+    next_label: "->"
+    previous_label: "<-"
   menu:
     login: "Log in"
     logout: "Log out"
@@ -113,6 +116,8 @@ en:
   signup:
     title: "Sign up"
     pass_again: "Repeat password"
+    warning: "This site is a school project, you may experience some mistakes.
+              Please do not save here any personal info or password from different sites"
   members:
     admins: "Admins"
     members: "Members"
