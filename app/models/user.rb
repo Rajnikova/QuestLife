@@ -29,7 +29,8 @@ class User < ApplicationRecord
   end
 
   def has_new_quest?
-    self.users_quests.where(status: 10).count
+    #self.users_quests.where(status: 10).count
+    self.quests.where(users_quests: {status: 10}).count
 
   end
 end
