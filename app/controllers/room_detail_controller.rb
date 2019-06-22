@@ -4,7 +4,7 @@ class RoomDetailController < ApplicationController
       @has_new_quest = current_user.has_new_quest?
     end
     @room = Room.find(params[:room_id])
-    @room_quests = @room.quests.paginate(page: params[:page], per_page: 7)
+    @room_quests = @room.quests.order("rooms_quests.created_at DESC").paginate(page: params[:page], per_page: 7)
     if current_user
       @joined = @room.users_rooms.where(user_id: current_user.id)
     end
