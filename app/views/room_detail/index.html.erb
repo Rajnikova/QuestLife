@@ -162,10 +162,10 @@
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
           <%if current_user %>
-            <%if @joined.count==0 %>
-              |<%= link_to (t :join, scope: :room_detail), room_detail_path(rooms_id: @room.id), method: 'POST' %>|
+            <%unless @joined %>
+              |<%= link_to (t :join, scope: :room_detail), room_detail_path(room_id: @room.id), method: 'POST' %>|
             <%else %>
-              |<%= link_to (t :leave, scope: :room_detail), room_detail_path(rooms_id: @room.id), method: 'DELETE' %>
+              |<%= link_to (t :leave, scope: :room_detail), room_detail_path(room_id: @room.id), method: 'DELETE' %>
               |	&nbsp;	&nbsp;|
               <%= link_to (t :members, scope: :room_detail), users_path(rooms_id: @room.id), method: 'GET' %>|
             <%end %>
@@ -177,7 +177,8 @@
     <div class="container">
       <div class="row">
         <div class="well">
-          <h1 class="text-center">Room quests</h1>
+          <h1 class="text-center"><%=t :quests_title, scope: :room_detail %></h1>
+          <%if @joined %>
           <% @room_quests.each  do |quest|    %>
             <div class="list-group">
               <a href="/<%=locale%>/quest_detail?quest_id=<%=quest.id %>" class="list-group-item active">
@@ -201,7 +202,9 @@
             </div>
           <% end %>
           <%=will_paginate @room_quests %>
-
+          <%else %>
+          <h3><%=t :no_quest, scope: :room_detail %></h3>
+          <%end %>
         </div>
       </div>
     </div>

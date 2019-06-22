@@ -12,8 +12,6 @@ class SignUpController < ApplicationController
 
   def create
     valid = true
-    puts 'vytvara'
-    puts params[:sign_up][:name]
     exist_user = User.find_by(name: params[:sign_up][:name])
     puts exist_user
     if params[:sign_up][:password] != params[:sign_up][:password2]
@@ -27,16 +25,13 @@ class SignUpController < ApplicationController
     end
 
     if valid
-      puts 'user name ok'
       @user = User.new(user_params)
-      puts @user
       @user.score = 0
       @user.level = 1
       @user.save
 
       if @user
         log_in @user
-        puts 'logged, redirecting'
         redirect_to home_path
       end
     else

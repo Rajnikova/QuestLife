@@ -15,13 +15,31 @@ class Quest < ApplicationRecord
     self.rooms_quests.delete_all
     self.delete
   end
-
+  def complete(user)
+    correct = true
+    user.addScore(self.reward)
+    unless user.save!
+      raise ActiveRecord::Rollback, "adding score failed"
+      correct = false
+    end
+    connection = UsersQuest.where(user_id: user.id, quest_id: self.id, status: 1).first
+    if connection && connection.status.eql?(1)
+      connection.status = 2
+      unless connection.save!
+        raise ActiveRecord::Rollback, "completing save failed"
+        correct = false
+      end
+    else
+      false
+    end
+    correct
+  end
 
   def author
     self.users.where(users_quests: { status: 0 }).first
   end
 
-  def set_author (user)
+  def set_author(user)
     users_quest = UsersQuest.new(user_id: user.id,
                                  quest_id: self.id,
                                  status: 0)

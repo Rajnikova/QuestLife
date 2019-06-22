@@ -63,7 +63,7 @@ en:
     room_name: "Rooem name"
     room_description: "Description"
   home:
-    description: "Make your live funnier by sending quests to your friends"
+    description: "Make your life funnier by sending quests to your friends"
     about: "about"
   admin_rooms:
     title: "Choose rooms"
@@ -109,6 +109,8 @@ en:
     leave: "Leave"
     members: "Members"
     add: "Add"
+    quests_title: "Rooms quests"
+    no_quest: "You can't see quests when you are not member"
   rooms:
     title: "Rooms"
     users: "Users"
@@ -136,7 +138,7 @@ en:
     room_join: "Room joined"
     room_join_e: "Join failed"
     room_left: "Room left"
-    room_left_e: "Leaving failed"
+    room_left_e: "You can't leave this room, you are last admin"
     delete_s: "Quest deleted"
     delete_e: "Delete failed"
     password_wrong: "Wrong password"

@@ -31,12 +31,49 @@ class Room < ApplicationRecord
     end
     correct
   end
+  def admins
+    self.users.where(users_rooms: { status: 0 })
+  end
+  def members
+    self.users.where(users_rooms: { status: 1 })
+  end
   def has_quest? (quest_id)
     has = self.quests.where(quests: { id: quest_id }).count
     has.positive?
 
   end
+  def have_user(user)
+    self.users.where(users: {id: user.id} ).count.positive?
+  end
 
+  def join_user(user)
+    con = UsersRoom.new(user_id: user.id,
+                        room_id: self.id, status: 1)
+    con.save!
+  end
+  def leave_user(user)
+    ActiveRecord::Base.transaction do
+      con = UsersRoom.where(user_id: user.id,
+                            room_id: self.id, status: 1)
+      con.delete_all
+      me = UsersRoom.where(user_id: user.id, room_id: self.id, status: 0).count
+      if self.admins.count > me
+        con = UsersRoom.where(user_id: user.id, room_id: self.id, status: 0)
+        con.delete_all
+        true
+      else
+        false
+      end
+    end
+
+  end
+
+  def make_admin user_id
+    con = self.users_rooms.where(user_id: user_id).first
+
+    con.status = 0
+    con.save!
+  end
   def send_notification (quest_id)
     self.users.each do |user|
       notification = UsersQuest.new(user_id: user.id,

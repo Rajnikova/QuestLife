@@ -73,10 +73,12 @@ sk:
     accept: "Akceptuj"
     complete: "Dokonči"
   room_detail:
+    title: "Questy v miestnosti"
     join: "Pridať sa"
     leave: "Opustiť miestnosť"
     members: "Členovia"
     add: "Pridaj"
+    no_quest: "Nemôžeš prezerať questy kým nie si členom"
   rooms:
     title: "Miestnosti"
     users: "Členovia"
@@ -104,7 +106,7 @@ sk:
     room_join: "Boli ste pridaný do miestnosti"
     room_join_e: "Pridanie zlyhalo"
     room_left: "Miestnosť opustená"
-    room_left_e: "opustenie zlyhalo"
+    room_left_e: "Nemôžeš opustiť miestnosť, si posledný admin"
     delete_s: "Quest vymazaný"
     delete_e: "Vymazanie zlyhalo"
     password_wrong: "Nesprávne heslo"
