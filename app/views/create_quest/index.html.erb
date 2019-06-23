@@ -165,7 +165,7 @@
 
               <p>
                 <%= form.label (t :task, scope: :models) %><br>
-                <%= form.text_area :task %>
+                <%= form.text_area :task, maxlength: 50 %>
               </p>
               <p>
                 <%= form.label (t :reward, scope: :models) %><br>
@@ -173,7 +173,7 @@
               </p>
               <p>
                 <%= form.label (t :description, scope: :models) %><br>
-                <%= form.text_area :description %>
+                <%= form.text_area :description, maxlength: 700 %>
               </p>
               <br>
               <div align="left">
@@ -191,7 +191,7 @@
               </div>
               <p>
                 <%= form.label (t :name, scope: :create_quest) %>
-                <%= form.text_field :other_user_name %>
+                <%= form.text_field :other_user_name,  maxlength: 20 %>
               </p>
 
               <p>

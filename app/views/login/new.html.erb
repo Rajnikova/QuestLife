@@ -9,13 +9,14 @@
     <% end %>
     <% provide(:title, "Log in") %>
     <h1><%=t :title, scope: :login %></h1>
-    <%= form_for(:login, url: login_path) do |f| %>
 
+    <%= form_for(:login, url: login_path) do |f| %>
       <%= f.label (t :user_name, scope: :models) %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control',  maxlength: 20, width: 20%>
+
       <br>
       <%= f.label (t :password, scope: :models) %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control',  maxlength: 20, size: 50, :class=>"login-block"  %>
       <br>
       <%= f.submit (t :login, scope: :menu), class: "btn btn-primary" %>
     <% end %>

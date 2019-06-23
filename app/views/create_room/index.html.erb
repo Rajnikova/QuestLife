@@ -163,11 +163,11 @@
             <%= form_for(:room, url: create_room_path) do |form| %>
               <p>
                 <%= form.label (t :room_name,scope: :models) %><br>
-                <%= form.text_field :name %>
+                <%= form.text_field :name,  maxlength: 20 %>
               </p>
               <p>
                 <%= form.label (t :room_description,scope: :models) %><br>
-                <%= form.text_area :description %>
+                <%= form.text_area :description,  maxlength: 700 %>
               </p>
               <p>
                 <%= form.button (t :create, scope: :create_room), class: "btn-info btn-lg" %>

@@ -165,7 +165,7 @@
 
               <p>
                 <%= form.label (t :task, scope: :models) %><br>
-                <%= form.text_area :task %>
+                <%= form.text_area :task, maxlength: 50 %>
               </p>
               <p>
                 <%= form.label (t :reward, scope: :models) %><br>
@@ -173,26 +173,29 @@
               </p>
               <p>
                 <%= form.label (t :description, scope: :models) %><br>
-                <%= form.text_area :description %>
+                <%= form.text_area :description, maxlength: 700 %>
               </p>
               <br>
+              <div align="left">
+                <%= check_box_tag :public, 1, false %>
+                <%= form.label (t :public, scope: :create_quest) %>
+                <br>
+                <p>
+                  <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
+                  <%= form.label (t :to_mine, scope: :create_quest) %>
+                </p>
 
-              <%= check_box_tag (t :public, scope: :create_quest), 1, false %>
-              <%= form.label :make_public %>
-              <br>
+                <%= check_box_tag :add_quest_to_someone, 1, false %>
+                <%= form.label (t :to_other, scope: :create_quest) %>
+                <br>
+              </div>
               <p>
-                <%= check_box_tag (t :to_mine, scope: :create_quest), 1, false %>
-                <%= form.label :Add_to_mine %>
-                <br>
-
-                <%= check_box_tag (t :to_other, scope: :create_quest), 1, false %>
-                <%= form.label :Send_to_other_user %>
-                <br>
                 <%= form.label (t :name, scope: :create_quest) %>
-                <%= form.text_field :other_user_name %>
+                <%= form.text_field :other_user_name,  maxlength: 20 %>
               </p>
+
               <p>
-                <%= form.button %>
+                <%= form.button (t :create, scope: :create_quest), class: "btn-info btn-lg" %>
               </p>
             <% end %>
           </div>

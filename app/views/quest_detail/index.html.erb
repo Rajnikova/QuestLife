@@ -162,7 +162,10 @@
                               'unknown'
                               end%></h4>
           <h4><b><%=t :description, scope: :models%></b></h4>
-          <p><%=@quest.description %></p>
+          <div class="description">
+            <p><%=@quest.description %></p>
+          </div>
+
           <h4><b><%=t :reward, scope: :models%>: <%=@quest.reward %></b></h4>
 
             <%if current_user %>

@@ -16,17 +16,17 @@
 
       </div>
       <%= f.label (t :user_name, scope: :models) %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control',  maxlength: 20, :class=>"login-block" %>
       <br>
       <%= f.label (t :email, scope: :models) %>
-      <%= f.email_field  :email, class: 'form-control' %>
+      <%= f.email_field  :email, class: 'form-control',  maxlength: 50, :class=>"login-block" %>
       <br>
       <%= f.label (t :password, scope: :models) %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control',  maxlength: 20, :class=>"login-block" %>
       <br>
 
       <%= f.label (t :pass_again, scope: :signup) %>
-      <%= f.password_field :password2, class: 'form-control' %>
+      <%= f.password_field :password2, class: 'form-control',  maxlength: 20, :class=>"login-block" %>
       <br>
       <div class="sign-warning">
         <%=t :warning, scope: :signup %>
