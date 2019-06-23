@@ -163,7 +163,7 @@
             <%= form_for(:room, url: create_room_path) do |form| %>
               <p>
                 <%= form.label (t :room_name,scope: :models) %><br>
-                <%= form.text_field :name,  maxlength: 20 %>
+                <%= form.text_field :name,  maxlength: 50 %>
               </p>
               <p>
                 <%= form.label (t :room_description,scope: :models) %><br>

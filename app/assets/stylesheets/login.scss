@@ -49,7 +49,6 @@ h2 {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
-  align-content: center;
 }
 
 #formFooter {
@@ -144,5 +143,6 @@ input[type=text]:placeholder {
 
 .login-block {
   width: 380px;
+  text-align: center;
 }
 
