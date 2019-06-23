@@ -104,9 +104,17 @@ en:
     title: "My quests"
     accept: "Accept"
     complete: "Complete"
+    give_up: "Give up"
+  quest_detail:
+    task: "Task"
+    author: "Author"
+    description: "Description"
+    accepted_times: "Accepted times"
+    completed_times: "Completed times"
   room_detail:
     join: "Join"
     leave: "Leave"
+    delete: "Delete room"
     members: "Members"
     add: "Add"
     quests_title: "Rooms quests"
@@ -139,6 +147,8 @@ en:
     room_join_e: "Join failed"
     room_left: "Room left"
     room_left_e: "You can't leave this room, you are last admin"
+    room_delete: "Room was deleted"
+    room_delete_e: "Deleting failed"
     delete_s: "Quest deleted"
     delete_e: "Delete failed"
     password_wrong: "Wrong password"
@@ -149,6 +159,8 @@ en:
     quest_completed_e: "Could not save quest"
     quest_deleted: "Quest rejected"
     quest_is_added: "Quest is already in room"
+    quest_give_s: "You gave up"
+    quest_give_e: "Something went wrong"
   flash_sign:
     name_exist: "Name already in use"
     pass_difrent: "Different passwords"
@@ -170,7 +182,8 @@ en:
       question: "What is room?"
       p1: "Room is a place created by admins. When they add quests to room, all users in that room will get notification.
             Rooms can be specified in some field like sport, television series, music band etc.
-            Users come to rooms they are interested in, to get more quests from chosen field."
+            Users come to rooms they are interested in, to get more quests from chosen field.
+            You can only delete room if you are last admin"
     sending:
       question: "Creating/sending quest"
       p1: 'For sending quest you must creating. Go to "Create quest" and fill information:'

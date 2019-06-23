@@ -177,15 +177,13 @@
                   <p class="list-group-item-heading"> <%= quest.reward %> </p>
                 </div>
 
-                <!--
-              <div class="col-md-6 ">
-                 <%= link_to (t :accept, scope: :my_quests), quest_accept_path(quest), method: 'POST' %>
-                <button type="button" class="btn btn-default btn-lg btn-block" > Completed! </button>
-              </div> -->
 
               </a>
               <div class="col-sm-2 ruby-button">
                 <%= link_to (t :complete, scope: :my_quests), quest_accept_path(quest), method: 'POST' %>
+              </div>
+              <div class="col-sm-2 ruby-button">
+                <%= link_to (t :give_up, scope: :my_quests), quest_delete_path(quest), method: 'DELETE' %>
               </div>
               <br>
             </div>

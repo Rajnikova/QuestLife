@@ -72,10 +72,19 @@ sk:
     title: "Moje questy"
     accept: "Akceptuj"
     complete: "Dokonči"
+    give_up: "Vzdať quest"
+
+  quest_detail:
+    task: "Úloha"
+    author: "Autor"
+    description: "Popis"
+    accepted_times: "Počet akceptovaní"
+    completed_times: "Počet dokončení"
   room_detail:
     title: "Questy v miestnosti"
     join: "Pridať sa"
     leave: "Opustiť miestnosť"
+    delete: "Vymaž miestnosť"
     members: "Členovia"
     add: "Pridaj"
     no_quest: "Nemôžeš prezerať questy kým nie si členom"
@@ -107,6 +116,8 @@ sk:
     room_join_e: "Pridanie zlyhalo"
     room_left: "Miestnosť opustená"
     room_left_e: "Nemôžeš opustiť miestnosť, si posledný admin"
+    room_delete: "Miestnosť bola vymazaná"
+    room_delete_e: "Vymazanie zlyhalo"
     delete_s: "Quest vymazaný"
     delete_e: "Vymazanie zlyhalo"
     password_wrong: "Nesprávne heslo"
@@ -117,6 +128,8 @@ sk:
     quest_completed_e: "Quest sa nepodarilo dokončiť"
     quest_deleted: "Quest bol odmietnutý"
     quest_is_added: "Quest už je v miestnosti"
+    quest_give_s: "Vzdal si quest"
+    quest_give_e: "Nastala chyba"
   flash_sign:
     name_exist: "Meno už bolo použité"
     pass_difrent: "Heslá sa nezhodujú"
@@ -142,7 +155,8 @@ sk:
           Keď niekto pridá quest do miestnosti, všetci členovia dostanú upozornenie o
           tomto queste. Miestnosti bývajú zamerané na nejakú oblasť ako je šport, seriál
            či kapela. Používatelia tak vstupom do miestnosti dostávajú questy z danej
-          oblasti záujmu.
+          oblasti záujmu
+          Miestnosť môžeš zrušiť len ak si posledný admin.
 "
     sending:
       question: "Vytváranie/posielanie questov"

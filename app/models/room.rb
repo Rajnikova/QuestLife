@@ -56,16 +56,26 @@ class Room < ApplicationRecord
       con = UsersRoom.where(user_id: user.id,
                             room_id: self.id, status: 1)
       con.delete_all
-      me = UsersRoom.where(user_id: user.id, room_id: self.id, status: 0).count
-      if self.admins.count > me
+      if self.last_admin? user
+        false
+      else
         con = UsersRoom.where(user_id: user.id, room_id: self.id, status: 0)
         con.delete_all
         true
-      else
-        false
+
       end
     end
+  end
 
+  def delete_room
+    self.users_rooms.delete_all
+    self.rooms_quests.delete_all
+    self.delete
+  end
+
+  def last_admin?(user)
+    me = UsersRoom.where(user_id: user.id, room_id: self.id, status: 0).count
+    self.admins.count <= me
   end
 
   def make_admin user_id

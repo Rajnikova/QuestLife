@@ -30,4 +30,21 @@ class QuestsController < ApplicationController
     end
     redirect_to quests_path
   end
+
+  def delete
+    #giving up quest
+    quest = Quest.find(params[:quest_id])
+    ActiveRecord::Base.transaction do
+      begin
+        if quest.give_up current_user
+          flash[:success] = (t :quest_give_s, scope: :flash)
+        else
+          flash[:alert] = (t :quest_give_e, scope: :flash)
+          raise ActiveRecord::Rollback, "giving up  failed"
+        end
+
+      end
+    end
+    redirect_to quests_path
+  end
 end

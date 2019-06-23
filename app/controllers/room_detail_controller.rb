@@ -30,4 +30,14 @@ class RoomDetailController < ApplicationController
     end
     redirect_back(fallback_location: room_detail_path)
   end
+
+  def delete
+    room = Room.find(params[:room_id])
+    if room.delete_room
+      flash[:success] = (t :room_delete, scope: :flash)
+    else
+      flash[:error] = (t :room_delete_e, scope: :flash)
+    end
+    redirect_to rooms_path
+  end
 end

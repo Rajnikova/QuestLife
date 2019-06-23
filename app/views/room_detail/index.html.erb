@@ -165,7 +165,10 @@
             <%unless @joined %>
               |<%= link_to (t :join, scope: :room_detail), room_detail_path(room_id: @room.id), method: 'POST' %>|
             <%else %>
-              |<%= link_to (t :leave, scope: :room_detail), room_detail_path(room_id: @room.id), method: 'DELETE' %>
+              <%if @room.last_admin? current_user %>
+              |<%=link_to (t :delete, scope: :room_detail), room_detail_path(room_id: @room.id), method: 'DELETE' %>|
+                <%end %>
+              |<%= link_to (t :leave, scope: :room_detail), room_detail_path(room_id: @room.id), method: 'PATCH' %>
               |	&nbsp;	&nbsp;|
               <%= link_to (t :members, scope: :room_detail), users_path(rooms_id: @room.id), method: 'GET' %>|
             <%end %>

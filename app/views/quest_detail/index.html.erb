@@ -155,8 +155,8 @@
     <div class="container">
       <div class="row">
         <div class="well">
-          <h1>Task: <%=@quest.task %></h1>
-          <h4><strong>Author:</strong> <%=if @author
+          <h1><%=t :task, scope: :models%>: <%=@quest.task %></h1>
+          <h4><strong><%=t :author, scope: :models%>: </strong> <%=if @author
                                   @author.name
                               else
                               'unknown'
@@ -165,7 +165,7 @@
           <h4><strong><%=t :completed_times, scope: :quest_detail%>: </strong><%=@quest.completed_times %></h4>
 
 
-          <h4><b><%=t :description, scope: :models%></b></h4>
+          <h4><strong><%=t :description, scope: :models%>: </strong></h4>
           <div class="description">
             <p><%=@quest.description %></p>
           </div>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get    '/quests',         to: 'quests#index'
     patch  '/quests',         to: 'quests#complete'
     post   '/quests',         to: 'quests#complete'
+    delete '/quests',         to: 'quests#delete'
     get    '/allquests',      to: 'allquests#index'
     post   '/allquests',      to: 'allquests#new'
     put    '/allquests',      to: 'allquests#add_to_room'
@@ -25,7 +26,8 @@ Rails.application.routes.draw do
     get    '/rooms',          to: 'rooms#index'
     get    '/room_detail',    to: 'room_detail#index'
     post   '/room_detail',    to: 'room_detail#join'
-    delete '/room_detail',    to: 'room_detail#leave'
+    patch  '/room_detail',    to: 'room_detail#leave'
+    delete '/room_detail',    to: 'room_detail#delete'
     get    '/create_room',    to: 'create_room#index'
     get    '/admin_rooms',    to: 'admin_rooms#index'
     put    '/admin_rooms',    to: 'admin_rooms#add_to_room'
@@ -39,6 +41,7 @@ Rails.application.routes.draw do
 
     resources :quests do
         post :accept
+        delete :delete
       end
 
     resources :users

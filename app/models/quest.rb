@@ -35,6 +35,10 @@ class Quest < ApplicationRecord
     correct
   end
 
+  def give_up(user)
+    UsersQuest.where(user_id: user.id, quest_id: self.id, status: 1).delete_all
+  end
+
   def author
     self.users.where(users_quests: { status: 0 }).first
   end
