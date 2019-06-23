@@ -67,4 +67,11 @@ class Quest < ApplicationRecord
       true
     end
   end
+
+  def completed_times
+    self.users.where(users_quests: {status: 2}).count
+  end
+  def accepted_times
+    self.users.where(users_quests: {status: 1}).count
+  end
 end

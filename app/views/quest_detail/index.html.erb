@@ -156,11 +156,15 @@
       <div class="row">
         <div class="well">
           <h1>Task: <%=@quest.task %></h1>
-          <h4><b>Author:</b> <%=if @author
+          <h4><strong>Author:</strong> <%=if @author
                                   @author.name
                               else
                               'unknown'
                               end%></h4>
+          <h4><strong><%=t :accepted_times, scope: :quest_detail%>: </strong><%=@quest.accepted_times %></h4>
+          <h4><strong><%=t :completed_times, scope: :quest_detail%>: </strong><%=@quest.completed_times %></h4>
+
+
           <h4><b><%=t :description, scope: :models%></b></h4>
           <div class="description">
             <p><%=@quest.description %></p>
