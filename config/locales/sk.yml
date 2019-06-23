@@ -49,7 +49,7 @@ sk:
     to_other: "Odoslať inému používateľovi"
     name: "Meno používateľa:"
     create: "Vytvor quest"
-    trouble: "Problémy pri vytvorení questu? pozri: "
+    trouble: "Problémy pri vytvorení questu? Pozri: "
     help: "pomoc"
   create_room:
     title: "Vytvoriť novú miestnosť"

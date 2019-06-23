@@ -160,45 +160,46 @@
 
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
-          <div class="form-box">
-            <%= form_for(:quest, url: create_quest_path) do |form| %>
-
+          <%= form_for(:quest, url: create_quest_path) do |form| %>
+            <div class="form-box">
               <p>
                 <%= form.label (t :task, scope: :models) %><br>
-                <%= form.text_area :task, maxlength: 70 %>
+                <%= form.text_field :task, maxlength: 70, size: 100 %>
               </p>
               <p>
                 <%= form.label (t :reward, scope: :models) %><br>
                 <%= form.number_field :reward %>
               </p>
+            </div>
+            <div class="form-box-my">
               <p>
                 <%= form.label (t :description, scope: :models) %><br>
-                <%= form.text_area :description, maxlength: 700 %>
+                <%= form.text_area :description, maxlength: 700, cols: "30", rows: "7", style: 'width:100%;' %>
               </p>
               <br>
-              <div align="left">
-                <%= check_box_tag :public, 1, false %>
-                <%= form.label (t :public, scope: :create_quest) %>
-                <br>
-                <p>
-                  <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
-                  <%= form.label (t :to_mine, scope: :create_quest) %>
-                </p>
-
-                <%= check_box_tag :add_quest_to_someone, 1, false %>
-                <%= form.label (t :to_other, scope: :create_quest) %>
-                <br>
-              </div>
+            </div>
+            <div class="form-box">
+              <%= check_box_tag :public, 1, false %>
+              <%= form.label (t :public, scope: :create_quest) %>
+              <br>
               <p>
-                <%= form.label (t :name, scope: :create_quest) %>
-                <%= form.text_field :other_user_name,  maxlength: 20 %>
+                <%= check_box_tag :add_quest_to_mine_quests, 1, false %>
+                <%= form.label (t :to_mine, scope: :create_quest) %>
               </p>
 
+              <%= check_box_tag :add_quest_to_someone, 1, false %>
+              <%= form.label (t :to_other, scope: :create_quest) %>
+              <br>
+
+              <%= form.label (t :name, scope: :create_quest) %>
+              <%= form.text_field :other_user_name,  maxlength: 20 %>
+            </div>
               <p>
                 <%= form.button (t :create, scope: :create_quest), class: "btn-info btn-lg" %>
               </p>
-            <% end %>
-          </div>
+
+          <% end %>
+
           <%=t :trouble, scope: :create_quest %><a href="/<%=locale%>/about"><%=t :help, scope: :create_quest %></a>
         </div>
       </div>
